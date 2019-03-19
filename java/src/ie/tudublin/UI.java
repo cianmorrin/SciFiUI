@@ -6,6 +6,7 @@ public class UI extends PApplet
 {
     Button b;
     MovingCircle mc;
+    Sky sk;
 
     boolean[] keys = new boolean[1024];
 
@@ -36,12 +37,29 @@ public class UI extends PApplet
     {
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
+        sk = new Sky();
     }
 
     public void draw()
     {
         background(0);
+        stroke(255);
+		noFill();
+        
+        int numLines = 20;
+		float gap = width / numLines;
+
+		for(int l = 0 ; l <= numLines; l ++)
+		{
+			float x = l * gap;
+			line(x, 0, width - x, height);
+			line(0, x, width, height - x);
+			
+        }
+        
         b.render();
+
+        
 
         mc.update();
         mc.render();
@@ -50,6 +68,8 @@ public class UI extends PApplet
         {
             System.out.println("Left arrow key pressed");
         }
+
+        
     }
 }
 
