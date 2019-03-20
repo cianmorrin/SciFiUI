@@ -38,23 +38,25 @@ public class UI extends PApplet
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         sk = new Sky();
+        border = width * 0.1f;
     }
+
+    float border;
 
     public void draw()
     {
         background(0);
-        stroke(255);
-		noFill();
-        
-        int numLines = 20;
-		float gap = width / numLines;
-
-		for(int l = 0 ; l <= numLines; l ++)
-		{
-			float x = l * gap;
-			line(x, 0, width - x, height);
-			line(0, x, width, height - x);
-			
+        textAlign(CENTER, CENTER);
+        for (int i = -5; i <= 5; i++) {
+            float x = map(i, -5, 5, border, width - border);
+            stroke(0, 0, 255);
+            line(x, border, x, height - border);
+            fill(255);
+            text(i, x, border / 2);
+            stroke(0, 0, 255);
+            line(border, x, width - border, x);
+            fill(255);
+            text(i, border / 2, x);
         }
         
         b.render();
