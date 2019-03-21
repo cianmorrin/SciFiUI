@@ -22,6 +22,8 @@ public class UI extends PApplet
         return keys[c] || keys [Character.toUpperCase(c)];
     }
     
+
+    
     public void settings()
     {
         fullScreen();
@@ -36,20 +38,24 @@ public class UI extends PApplet
 
     public void draw()
     {
-        background(255);
+        background(0);
         
-        fill(135,206,250);
-        noStroke();
-        rect(0, (height / 2) + 100, width, height / 2);
-        fill(135,206,250);
-        rect(0,0,0 + 100, height);
         
-        fill(135,206,250);
-        rect(width - 100 , 0, width, height);
+        //fill(135,206,250);
+        // noStroke();
+        // rect(0, (height / 2) + 100, width, height / 2);
+        // fill(135,206,250);
+        // rect(0,0,0 + 100, height);
+        
+        // fill(135,206,250);
+        // rect(width - 100 , 0, width, height);
 
-        fill(255,0,0);
-        triangle(0, 0, 150, 0, 0, 150);
-        triangle(width - 150, 0, width, 0, width, 150);
+        // fill(255,0,0);
+        // triangle(0, 0, 150, 0, 0, 150);
+        // triangle(width - 150, 0, width, 0, width, 150);
+        noFill();
+        stroke(255, 153, 0);
+        rect(width*0.25f, height*0.1f, width * 0.5f, height * 0.8f);
         
         s.render();
         s.update();

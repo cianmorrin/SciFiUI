@@ -29,7 +29,7 @@ public class Compass
         yasc.rotate(rotation);
         
         float halfSize = size / 2;
-        yasc.stroke(0);
+        yasc.stroke(255);
         yasc.line(- halfSize, halfSize, 0, - halfSize);
         yasc.line(0, - halfSize
         , halfSize, halfSize);
