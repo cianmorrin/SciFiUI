@@ -4,20 +4,17 @@ import processing.core.PApplet;
 
 public class UI extends PApplet
 {
-    Button b;
-    MovingCircle mc;
-    Sky sk;
-
+    Compass s;
+    
     boolean[] keys = new boolean[1024];
 
     public void keyPressed()
     {
         keys[keyCode] = true;
     }
-    
     public void keyReleased()
     {
-        keys[keyCode] = true;
+        keys[keyCode] = false;
     }
 
     public boolean checkKey(int c)
@@ -25,28 +22,21 @@ public class UI extends PApplet
         return keys[c] || keys [Character.toUpperCase(c)];
     }
     
-
     public void settings()
     {
-        //size(800, 800);
-        // Use fullscreen instead of size to make your interface fullscreen
-        fullScreen(); 
+        fullScreen();
+
     }
 
     public void setup()
     {
-      
-        b = new Button(this, 50, 50, 100, 50, "I am a big button");
-        mc = new MovingCircle(this, width / 2, height / 2, 50);
-        sk = new Sky();
+        s = new Compass(this, width / 2, height / 2, 5, 50);
         
     }
 
-    
-
     public void draw()
     {
-        background(0);
+        background(255);
         
         fill(135,206,250);
         noStroke();
@@ -60,23 +50,12 @@ public class UI extends PApplet
         fill(255,0,0);
         triangle(0, 0, 150, 0, 0, 150);
         triangle(width - 150, 0, width, 0, width, 150);
-
-
         
-        
-        b.render();
-
-        
-
-        mc.update();
-        mc.render();
-
-        if (checkKey(LEFT))
-        {
-            System.out.println("Left arrow key pressed");
-        }
+        s.render();
+        s.update();
 
         
     }
-}
 
+
+}
