@@ -63,6 +63,8 @@ public class UI extends PApplet
 
     }
 
+    
+
     public void setup()
     {
         w = 0+300;
@@ -74,31 +76,27 @@ public class UI extends PApplet
 
     public void draw()
     {
-        background(0);
-        noFill();
-        stroke(255, 153, 0);
-        rect(width*0.25f, height*0.1f, width * 0.5f, height * 0.8f);
         
+        background(3, 1, 26);
+        noFill();
+        stroke(204, 255, 255);
+        
+        strokeWeight(6);
+        circle(width/2, height/2, 300);
+
+        strokeWeight(4);
+        circle(width/2, height/2, 250);
+       
+        // strokeWeight(1);
+        // arc(width/2, height/2, 60, 60, HALF_PI, PI);
+
         s.render();
         s.update();
 
         calcWave();
         renderWave();
 
-        stroke(255, 153, 0);
-        noFill();
-        ellipse(width - 200, height - 200, 190, 190);
-        stroke(255, 153, 0);
-        noFill();
-        ellipse(width - 200, height - 200, 170, 170);
-
-
-        stroke(255, 153, 0);
-        noFill();
-        ellipse(0 + 200, height - 200, 190, 190);
-        stroke(255, 153, 0);
-        noFill();
-        ellipse(0 + 200, height - 200, 170, 170);
+       
 
         
     }
