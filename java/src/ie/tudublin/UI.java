@@ -5,6 +5,16 @@ import processing.core.PApplet;
 public class UI extends PApplet
 {
     Compass s;
+    int xspacing = 16;   // How far apart should each horizontal location be spaced
+    int w;              // Width of entire wave
+
+    float theta = 0.0f;  // Start angle at 0
+    float amplitude = 75.0f;  // Height of wave
+    float period = 500.0f;  // How many pixels before the wave repeats
+    float dx;  // Value for incrementing X, a function of period and xspacing
+    float[] yvalues;  // Using an array to store height values for the wave
+
+
     
     boolean[] keys = new boolean[1024];
 
@@ -21,17 +31,43 @@ public class UI extends PApplet
     {
         return keys[c] || keys [Character.toUpperCase(c)];
     }
+
+    void calcWave() {
+        // Increment theta (try different values for 'angular velocity' here
+        theta += 0.06;
+      
+        // For every x value, calculate a y value with sine function
+        float x = theta;
+        for (int i = 0; i < yvalues.length; i++) {
+          yvalues[i] = sin(x)*amplitude;
+          x+=dx;
+        }
+      }
+      
+      void renderWave() {
+        noStroke();
+        fill(255);
+        // A simple way to draw the wave with an ellipse at each location
+        for (int x = 0; x < yvalues.length; x++) {
+          ellipse(x*xspacing, (height-200)+yvalues[x], 16, 16);
+        }
+      }
     
 
     
     public void settings()
     {
         fullScreen();
+       
+        
 
     }
 
     public void setup()
     {
+        w = 0+300;
+        dx = (TWO_PI / period) * xspacing;
+        yvalues = new float[w/xspacing];
         s = new Compass(this, width / 2, height / 2, 5, 50);
         
     }
@@ -39,26 +75,30 @@ public class UI extends PApplet
     public void draw()
     {
         background(0);
-        
-        
-        //fill(135,206,250);
-        // noStroke();
-        // rect(0, (height / 2) + 100, width, height / 2);
-        // fill(135,206,250);
-        // rect(0,0,0 + 100, height);
-        
-        // fill(135,206,250);
-        // rect(width - 100 , 0, width, height);
-
-        // fill(255,0,0);
-        // triangle(0, 0, 150, 0, 0, 150);
-        // triangle(width - 150, 0, width, 0, width, 150);
         noFill();
         stroke(255, 153, 0);
         rect(width*0.25f, height*0.1f, width * 0.5f, height * 0.8f);
         
         s.render();
         s.update();
+
+        calcWave();
+        renderWave();
+
+        stroke(255, 153, 0);
+        noFill();
+        ellipse(width - 200, height - 200, 190, 190);
+        stroke(255, 153, 0);
+        noFill();
+        ellipse(width - 200, height - 200, 170, 170);
+
+
+        stroke(255, 153, 0);
+        noFill();
+        ellipse(0 + 200, height - 200, 190, 190);
+        stroke(255, 153, 0);
+        noFill();
+        ellipse(0 + 200, height - 200, 170, 170);
 
         
     }
