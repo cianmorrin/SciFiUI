@@ -16,6 +16,7 @@ public class UI extends PApplet
     float[] yvalues;  // Using an array to store height values for the wave
 
 
+
     
     boolean[] keys = new boolean[1024];
 
@@ -59,6 +60,7 @@ public class UI extends PApplet
     public void settings()
     {
         fullScreen();
+        //size(640, 360);
     
     }
 
@@ -70,22 +72,27 @@ public class UI extends PApplet
         dx = (TWO_PI / period) * xspacing;
         yvalues = new float[w/xspacing];
         s = new Compass(this, width / 2, height / 2, 5, 50);
-        ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI);
-        
+        ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI, 0, 0);    
     }
 
     public void draw()
     {
         
-        background(3, 1, 26);
+         background(3, 1, 26);
         ch.render();
         strokeWeight(1);
 
-        s.render();
-        s.update();
+        // s.render();
+        // s.update();
 
-        calcWave();
-        renderWave();
+        // calcWave();
+        // renderWave();
+
+
+        
+
+    
+        
 
        
 
