@@ -6,6 +6,7 @@ public class UI extends PApplet
 {
     Compass s;
     CentreHub ch;
+    PieChart pc;
     int xspacing = 16;   // How far apart should each horizontal location be spaced
     int w;              // Width of entire wave
 
@@ -72,22 +73,26 @@ public class UI extends PApplet
         dx = (TWO_PI / period) * xspacing;
         yvalues = new float[w/xspacing];
         s = new Compass(this, width / 2, height / 2, 5, 50);
-        ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI, 0, 0);    
+        ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI, 0, 0); 
+        pc = new PieChart(this, width, height, 220, CHORD );   
     }
 
     public void draw()
     {
         
-         background(3, 1, 26);
-        ch.render();
+        background(3, 1, 26);
+        
+        pc.render();
         strokeWeight(1);
 
-        // s.render();
+        //  s.render();
         // s.update();
 
         // calcWave();
         // renderWave();
 
+
+        ch.render();
 
         
 

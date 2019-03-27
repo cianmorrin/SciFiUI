@@ -1,5 +1,6 @@
 package ie.tudublin;
 
+import processing.core.PApplet;
 
 public class CentreHub
 {
@@ -30,7 +31,6 @@ public class CentreHub
     public void render()
     {
         
-
         ui.noFill();
         ui.stroke(204, 255, 255);
         
@@ -39,6 +39,8 @@ public class CentreHub
 
         ui.strokeWeight(4);
         ui.circle(width/2, height/2, 250);
+
+        
        
         ui.strokeWeight(8);
         ui.arc(width/2, height/2, 310, 310, PI+QUARTER_PI, TWO_PI);
@@ -49,17 +51,16 @@ public class CentreHub
         ui.strokeWeight(1);
         ui.arc(width/2, height/2, 320, 320, PI, PI+QUARTER_PI);
 
-        ui.strokeWeight(8);
-        ui.arc(width/2, height/2, 400, 400, PI+QUARTER_PI, TWO_PI);
-
-        if (ui.second() % 6 == 0) {  
+        if (PApplet.second() % 2 == 0) {  
             jitter = ui.random(-0.1f, 0.1f);
           }
           angle = angle + jitter;
-          float c = ui.cos(angle);
+          float c = PApplet.cos(angle);
           ui.translate(width/2, height/2);
           ui.rotate(c);
 
+        ui.strokeWeight(8);
+        ui.arc(0, 0, 400, 400, PI+QUARTER_PI, TWO_PI);
 
         ui.strokeWeight(7);
         ui.arc(0, 0, 360, 360, HALF_PI, PI);
@@ -83,6 +84,18 @@ public class CentreHub
        
         ui.strokeWeight(4);
         ui.arc(0, 0, 370, 370, PI+QUARTER_PI, TWO_PI);
+
+
+            
+        
+
+
+
+
+
+
+
+
 
     }
 }
