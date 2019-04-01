@@ -10,6 +10,7 @@ public class UI extends PApplet
     Shapes sh;
     Button b;
     BiggerButton bb;
+    Radar r;
     int xspacing = 16;   // How far apart should each horizontal location be spaced
     int w;              // Width of entire wave
 
@@ -81,6 +82,7 @@ public class UI extends PApplet
         sh = new Shapes(this, width / 2, height / 2, 50, false, false, 0.0f, 0.0f);
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         bb = new BiggerButton(this, 200, 200, 150, 100, "I am bigger moving button");
+        r = new Radar(this, 1, width - 200, 200, 100);
 
         
     }
@@ -95,6 +97,9 @@ public class UI extends PApplet
         b.render();
         bb.render();
         bb.update();
+
+        r.update();
+        r.render();
 
 
         //  s.render();
