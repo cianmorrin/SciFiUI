@@ -4,7 +4,7 @@ import processing.core.PApplet;
 
 public class BiggerButton extends Button
 {
-    private float dx = 1;
+    private float dx = 10;
 
     public BiggerButton(UI ui, float x, float y, float width, float height, String text)
     {
@@ -13,7 +13,7 @@ public class BiggerButton extends Button
 
     public void render()
     {
-        ui.noFill();
+        ui.fill(0);
         ui.stroke(255);
         ui.rect(x, y, width, height);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
@@ -23,7 +23,7 @@ public class BiggerButton extends Button
     public void update()
     {
         x += dx;
-        if ((x > ui.width - width) || (x < width))
+        if ((x > ui.width - width) || (x < 0))
         {
             dx *= -1;
         }

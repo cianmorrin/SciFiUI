@@ -79,9 +79,9 @@ public class UI extends PApplet
         s = new Compass(this, width / 2, height / 2, 5, 50);
         ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI, 0, 0); 
         pc = new PieChart(this, width, height, 220, CHORD );   
-        sh = new Shapes(this, width / 2, height / 2, 50, false, false, 0.0f, 0.0f);
+        sh = new Shapes(this, width / 2, height / 2);
         b = new Button(this, 50, 50, 100, 50, "I am a button");
-        bb = new BiggerButton(this, 200, 200, 150, 100, "I am bigger moving button");
+        bb = new BiggerButton(this, 200, 0, 150, 20, "I am bigger moving button");
         r = new Radar(this, 1, width - 200, 200, 100);
 
         
@@ -93,7 +93,7 @@ public class UI extends PApplet
         background(3, 1, 26);
         
        // pc.render();
-        
+        stroke(255);
         b.render();
         bb.render();
         bb.update();
@@ -105,20 +105,13 @@ public class UI extends PApplet
         //  s.render();
         // s.update();
 
-        // calcWave();
-        // renderWave();
+        //  calcWave();
+        //  renderWave();
         strokeWeight(1);
-        sh.render();
+        //sh.render();
         ch.render();
 
-        
-
-    
-        
-
-       
-
-        
+      
     }
 
 
