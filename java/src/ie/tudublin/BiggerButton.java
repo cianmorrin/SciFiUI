@@ -13,11 +13,11 @@ public class BiggerButton extends Button
 
     public void render()
     {
-        ui.fill(0);
-        ui.stroke(255);
+        ui.fill(41, 45, 70);
+        ui.noStroke();
         ui.rect(x, y, width, height);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-        ui.text(text, x + width * 0.9f, y + height * 0.9f);
+        //ui.text(text, x + width * 0.9f, y + height * 0.9f);
     }
 
     public void update()
