@@ -2,11 +2,11 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
-public class BiggerButton extends Button
+public class MovingRect extends Button
 {
     private float dx = 10;
 
-    public BiggerButton(UI ui, float x, float y, float width, float height, String text)
+    public MovingRect(UI ui, float x, float y, float width, float height, String text)
     {
       super(ui, x, y, width, height, text);
     }

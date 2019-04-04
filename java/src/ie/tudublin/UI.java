@@ -1,15 +1,21 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
+import java.util.ArrayList;
+import processing.data.Table;
+import processing.data.TableRow;
+
 
 public class UI extends PApplet
 {
+    ArrayList<Alien> aliens = new ArrayList<Alien>();
+
     Compass s;
     CentreHub ch;
-    PieChart pc;
+    
     Shapes sh;
     Button b;
-    BiggerButton bb;
+    MovingRect mb;
     Radar r;
     int xspacing = 16;   // How far apart should each horizontal location be spaced
     int w;              // Width of entire wave
@@ -28,6 +34,7 @@ public class UI extends PApplet
     public void keyPressed()
     {
         keys[keyCode] = true;
+        
     }
     public void keyReleased()
     {
@@ -59,6 +66,24 @@ public class UI extends PApplet
           ellipse(x*xspacing, (height-200)+yvalues[x], 16, 16);
         }
       }
+
+    
+      void loadProducts()
+      {
+          Table table = loadTable("alien.csv", "header");
+          for(TableRow tr:table.rows())
+          {
+              Alien a = new Alien(tr);
+              aliens.add(a);
+          }        
+      }
+  
+     
+      public void printProducts() {
+          for (Alien a : aliens) {
+              System.out.println(a);
+          }
+      }
     
 
     
@@ -66,7 +91,9 @@ public class UI extends PApplet
     {
         fullScreen();
         //size(640, 360);
-    
+        loadProducts();
+        printProducts();
+
     }
 
     
@@ -78,12 +105,11 @@ public class UI extends PApplet
         yvalues = new float[w/xspacing];
         s = new Compass(this, width / 2, height / 2, 5, 50);
         ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI, 0, 0); 
-        pc = new PieChart(this, width, height, 220, CHORD );   
         sh = new Shapes(this, width / 2, height / 2);
         b = new Button(this, 50, 50, 100, 50, "I am a button");
-        bb = new BiggerButton(this, 200, 0, 150, 10, "I am bigger moving button");
+        mb = new MovingRect(this, 200, 0, 150, 10, "I am bigger moving button");
         r = new Radar(this, 1, width - 200, 200, 100);
-
+        noLoop();
         
     }
 
@@ -92,11 +118,11 @@ public class UI extends PApplet
         
         background(3, 1, 26);
         
-       // pc.render();
+       
         stroke(255);
         b.render();
-        bb.render();
-        bb.update();
+        mb.render();
+        mb.update();
 
         r.update();
         r.render();
@@ -114,5 +140,6 @@ public class UI extends PApplet
       
     }
 
+    
 
 }
