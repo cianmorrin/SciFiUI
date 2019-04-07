@@ -9,6 +9,7 @@ import processing.data.TableRow;
 public class UI extends PApplet
 {
     ArrayList<Alien> aliens = new ArrayList<Alien>();
+    ArrayList<Alien> alieninfo = new ArrayList<Alien>();
 
     Compass s;
     CentreHub ch;
@@ -85,19 +86,23 @@ public class UI extends PApplet
           }
       }
 
+      public void printBill() {
+        for (Alien a1 : alieninfo) {
+            System.out.println(a1);
+        }
+    }
+
       float border = 80;
       float yborder = 700;
     float buttonWidth = 150;
     float buttonHeight = 36;
+    String alienPick = " ";
     
 
       void drawProductButtons()
     {
-        textSize(40);
-        textAlign(CENTER, CENTER);
-        text(" Cafe Rubis Till System ", width / 2, 30); 
-        fill(41, 45, 70);
-
+      stroke(204, 255, 255);
+      line(0, 675, width, 675);
         textSize(15);
         for(int i = 0 ; i < aliens.size() ; i += 2)
         {
@@ -111,7 +116,6 @@ public class UI extends PApplet
             textAlign(LEFT, CENTER);
             fill(204, 255, 255);
             text(p.getPlanet() ,  x +  10, y + buttonHeight * 0.5f);
-
         }
 
         for(int i = 1 ; i < aliens.size() ; i += 2)
@@ -129,6 +133,60 @@ public class UI extends PApplet
 
         }
     }
+
+    
+    public void mouseClicked() // when the mouse is clicked 
+    {
+        int which = -1; //the variable which is initialised to -1
+
+        if (mouseX > (border * 3) && mouseX < (border * 3) + buttonWidth) // mouse's x co-ordinate is in between a button go in
+        {
+            for(int i = 0 ; i < aliens.size() ; i ++) // iterating over all items 
+            {
+                float y = yborder + (i * (buttonHeight )); // y is the y co-ordinate for each button
+                if (mouseY > y && mouseY < y + buttonHeight) //inbetween y co-ordinates of button
+                {
+                    which = i + 1; // which is given the value of the place of whatever button is clicked
+                    break;
+                }
+            }
+        }
+
+        if (mouseX > border && mouseX < border + buttonWidth) // mouse's x co-ordinate is in between a button go in
+        {
+            for(int i = 0 ; i < aliens.size() ; i ++) // iterating over all items 
+            {
+                float y = yborder + (i * (buttonHeight )); // y is the y co-ordinate for each button
+                if (mouseY > y && mouseY < y + buttonHeight) //inbetween y co-ordinates of button
+                {
+                    which = i; // which is given the value of the place of whatever button is clicked
+                    break;
+                }
+            }
+        }
+        
+        if (which != -1) //if a button was succesfully clicked
+        {
+            //System.out.println(products.get(which)); // it prints out which one 
+           alienPick = aliens.get(which).toString();
+        }
+
+        
+    }
+
+    
+    public void displayBill() {
+      fill(255);
+      stroke(0);
+      textAlign(CENTER, CENTER);
+      rect( (width / 2) - 60, 700, buttonWidth, height * 0.7f); // rectangle
+    
+            
+      fill(0);
+      textAlign(LEFT, CENTER);
+      text(alienPick, (width / 2) - 30, 710 );
+      
+  }
     
 
     
@@ -138,7 +196,10 @@ public class UI extends PApplet
         //size(640, 360);
         loadProducts();
         printProducts();
+        printBill();
 
+       
+        
     }
 
     
@@ -171,8 +232,9 @@ public class UI extends PApplet
 
         r.update();
         r.render();
-
+        
         drawProductButtons();
+       displayBill();
         //  s.render();
         // s.update();
 

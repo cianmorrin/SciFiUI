@@ -16,7 +16,7 @@ public class Alien
 
     public String toString()
     {
-        return alien + "\t" + planet;
+        return alien ;
     }
 
     public Alien(TableRow tr)
