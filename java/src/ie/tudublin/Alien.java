@@ -10,7 +10,7 @@ public class Alien
 
     public Alien(String alien, String planet)
     {
-        this.alien = planet;
+        this.alien = alien;
         this.planet = planet;
     }
 

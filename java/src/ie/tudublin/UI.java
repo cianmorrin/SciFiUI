@@ -84,6 +84,35 @@ public class UI extends PApplet
               System.out.println(a);
           }
       }
+
+      float border = 80;
+    float buttonWidth = 100;
+    float buttonHeight = 50;
+    float gap = 20;
+
+      void drawProductButtons()
+    {
+        textSize(32);
+        textAlign(CENTER, CENTER);
+        text(" Cafe Rubis Till System ", width / 2, 30); 
+
+
+        textSize(15);
+        for(int i = 0 ; i < aliens.size() ; i ++)
+        {
+            Alien p = aliens.get(i); //get the product into p 
+            float y = border + (i * (buttonHeight + gap)); // y contains y co-ordinate of button 
+            float x = border; // x co-ordinate
+            fill(255);
+            stroke(0);
+            rect(x, y, buttonWidth, buttonHeight); // rectangle
+            
+            textAlign(LEFT, CENTER);
+            fill(0);
+            text(p.getPlanet() ,  x +  10, y + buttonHeight * 0.5f);
+
+        }
+    }
     
 
     
@@ -109,7 +138,7 @@ public class UI extends PApplet
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mb = new MovingRect(this, 200, 0, 150, 10, "I am bigger moving button");
         r = new Radar(this, 1, width - 200, 200, 100);
-        noLoop();
+       // noLoop();
         
     }
 
@@ -127,7 +156,7 @@ public class UI extends PApplet
         r.update();
         r.render();
 
-
+        drawProductButtons();
         //  s.render();
         // s.update();
 
@@ -136,6 +165,8 @@ public class UI extends PApplet
         strokeWeight(1);
         //sh.render();
         ch.render();
+
+        
 
       
     }
