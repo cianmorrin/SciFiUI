@@ -178,12 +178,13 @@ public class UI extends PApplet
     public void displayBill() {
       fill(41, 45, 70);
       stroke(204, 255, 255);
-      rect( (width / 2) - 200, 700, buttonWidth + 240, 200); // rectangle
+      rect( (width / 2) - 200, 700, buttonWidth + 240, 180); // rectangle
     
-            
       fill(204, 255, 255);
       textAlign(LEFT, CENTER);
-      text(alienPick, (width / 2) - 100, 800 );
+
+      text("Alien Type : \nWanted Ranking : \nWeight : \nHeight : \nKills : \nWeapon : " , (width / 2) - 180, 780 );
+      text(alienPick, (width / 2) - 50, 780 );
       
   }
     
