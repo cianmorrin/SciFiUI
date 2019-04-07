@@ -86,30 +86,46 @@ public class UI extends PApplet
       }
 
       float border = 80;
-    float buttonWidth = 100;
-    float buttonHeight = 50;
-    float gap = 20;
+      float yborder = 700;
+    float buttonWidth = 150;
+    float buttonHeight = 36;
+    
 
       void drawProductButtons()
     {
-        textSize(32);
+        textSize(40);
         textAlign(CENTER, CENTER);
         text(" Cafe Rubis Till System ", width / 2, 30); 
-
+        fill(41, 45, 70);
 
         textSize(15);
-        for(int i = 0 ; i < aliens.size() ; i ++)
+        for(int i = 0 ; i < aliens.size() ; i += 2)
         {
             Alien p = aliens.get(i); //get the product into p 
-            float y = border + (i * (buttonHeight + gap)); // y contains y co-ordinate of button 
+            float y = yborder + (i * (buttonHeight )); // y contains y co-ordinate of button 
             float x = border; // x co-ordinate
-            fill(255);
-            stroke(0);
+            fill(41, 45, 70);
+            stroke(204, 255, 255);
             rect(x, y, buttonWidth, buttonHeight); // rectangle
             
             textAlign(LEFT, CENTER);
-            fill(0);
+            fill(204, 255, 255);
             text(p.getPlanet() ,  x +  10, y + buttonHeight * 0.5f);
+
+        }
+
+        for(int i = 1 ; i < aliens.size() ; i += 2)
+        {
+            Alien p = aliens.get(i); //get the product into p 
+            float y = yborder + ((i - 1)  * (buttonHeight )); // y contains y co-ordinate of button 
+            float x = border; // x co-ordinate
+            fill(41, 45, 70);
+            stroke(204, 255, 255);
+            rect(x * 3, y, buttonWidth , buttonHeight); // rectangle
+            
+            textAlign(LEFT, CENTER);
+            fill(204, 255, 255);
+            text(p.getPlanet() ,  (x * 3) +  10, y + buttonHeight * 0.5f);
 
         }
     }
