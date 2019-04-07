@@ -1,7 +1,7 @@
-Alien,Planet
-Agorians, Mars
-Amoeboids, Jupiter
-Blarg, Saturn
-Cazares Tea, Pluto
-Cragmites, Uranus 
-Drophyds, Mercury
+Alien,Planet,Wanted,Height,Weight,Kills,Weapon
+Agorians, Mars, #1, 8ft, 600kg, 456, Cosmic Lazer
+Amoeboids, Jupiter, #2, 2ft, 340kg, 380, Electron Blaster
+Blarg, Saturn, #3, 24ft, 600kg, 365, Acid Sword
+Cazares Tea, Pluto, #4, 15ft, 350kg, 321, Radio Arrow
+Cragmites, Uranus, #5, 6ft, 100kg, 280, Blood Bazooka
+Drophyds, Mercury, #6, 21ft, 420kg, 250, Razor Fangs

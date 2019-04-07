@@ -176,15 +176,14 @@ public class UI extends PApplet
 
     
     public void displayBill() {
-      fill(255);
-      stroke(0);
-      textAlign(CENTER, CENTER);
-      rect( (width / 2) - 60, 700, buttonWidth, height * 0.7f); // rectangle
+      fill(41, 45, 70);
+      stroke(204, 255, 255);
+      rect( (width / 2) - 200, 700, buttonWidth + 240, 200); // rectangle
     
             
-      fill(0);
+      fill(204, 255, 255);
       textAlign(LEFT, CENTER);
-      text(alienPick, (width / 2) - 30, 710 );
+      text(alienPick, (width / 2) - 100, 800 );
       
   }
     
