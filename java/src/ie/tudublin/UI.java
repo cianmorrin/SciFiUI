@@ -102,9 +102,9 @@ public class UI extends PApplet
     
 
       void drawProductButtons()
-    {
-      stroke(204, 255, 255);
-      line(0, 675, width, 675);
+     {
+         stroke(204, 255, 255);
+        line(0, 675, width, 675);
         textSize(15);
         for(int i = 0 ; i < aliens.size() ; i += 2)
         {
@@ -236,7 +236,7 @@ public class UI extends PApplet
 
        loadData();
        printStars();
-       planetborder = width * 0.1f;
+      // planetborder = width * 0.1f;
         
     }
 
@@ -257,28 +257,29 @@ public class UI extends PApplet
     }
 }
 
-float planetborder;
+//float planetborder = 700;
 
 private void drawGrid() {
   textAlign(CENTER, CENTER);
   for (int i = -5; i <= 5; i++) {
-      float x = map(i, -5, 5, border, width - border);
-      stroke(0, 0, 255);
-      line(x, border, x, height - border);
+      float x = map(i, -5, 5, (width / 2) + 300, width - 50);
+      stroke(41, 45, 70);
+      line(x, 700, x, height - 50);
       fill(255);
-      text(i, x, border / 2);
-      stroke(0, 0, 255);
-      line(border, x, width - border, x);
+      text(i, x, 690 );
+      stroke(41, 45, 70);
+      float y = map(i, -5, 5, 700, height - 50);
+      line((width / 2) + 300, y, width - 50, y);
       fill(255);
-      text(i, border / 2, x);
+      text(i, (width /2 ) + 270, y);
   }
 }
 
 public void drawStars() {
   textAlign(LEFT, CENTER);
   for (Planet s : stars) {
-      float x = map(s.getxG(), -5, 5, border, width - border);
-      float y = map(s.getyG(), -5, 5, border, height - border);
+      float x = map(s.getxG(), -5, 5, (width / 2) + 300, width - 50);
+      float y = map(s.getyG(), -5, 5, 700, height - 50);
 
       stroke(255, 255, 0);
       noFill();
@@ -295,32 +296,32 @@ public void drawStars() {
     public void draw()
     {
         
-        background(3, 1, 26);
+      background(3, 1, 26);
         
-       
-        stroke(255);
-        b.render();
-        mb.render();
-        mb.update();
+      stroke(255);
+      b.render();
+      mb.render();
+      mb.update();
 
-        r.update();
-        r.render();
+      r.update();
+      r.render();
         
-        drawProductButtons();
-       displayBill();
+      drawProductButtons();
+      displayBill();
 
 
-       drawGrid();
-       drawStars();
+      drawGrid();
+      drawStars();
 
-       if (selected1 != -1 && selected2 == -1) {
-        Planet star1 = stars.get(selected1);
-        stroke(255, 255, 0);
-        float x = map(star1.getxG(), -5, 5, border, width - border);
-        float y = map(star1.getyG(), -5, 5, border, height - border);
+      if (selected1 != -1 && selected2 == -1) {
+      Planet star1 = stars.get(selected1);
+      stroke(255, 255, 0);
+      float x = map(star1.getxG(), -5, 5, border, width - border);
+      float y = map(star1.getyG(), -5, 5, border, height - border);
 
-        line(x, y, mouseX, mouseY);
-    } else if (selected1 != -1 && selected2 != -1) {
+      line(x, y, mouseX, mouseY);
+    }
+     else if (selected1 != -1 && selected2 != -1) {
       Planet star1 = stars.get(selected1);
         float x1 = map(star1.getxG(), -5, 5, border, width - border);
         float y1 = map(star1.getyG(), -5, 5, border, height - border);
@@ -345,12 +346,6 @@ public void drawStars() {
         strokeWeight(1);
         //sh.render();
         ch.render();
-
-        
-
-      
+ 
     }
-
-    
-
 }
