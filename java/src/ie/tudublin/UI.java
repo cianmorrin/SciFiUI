@@ -117,7 +117,7 @@ public class UI extends PApplet
             
             textAlign(LEFT, CENTER);
             fill(204, 255, 255);
-            text(p.getPlanet() ,  x +  10, y + buttonHeight * 0.5f);
+            text(p.getAlien() ,  x +  10, y + buttonHeight * 0.5f);
         }
 
         for(int i = 1 ; i < aliens.size() ; i += 2)
@@ -131,7 +131,7 @@ public class UI extends PApplet
             
             textAlign(LEFT, CENTER);
             fill(204, 255, 255);
-            text(p.getPlanet() ,  (x * 3) +  10, y + buttonHeight * 0.5f);
+            text(p.getAlien() ,  (x * 3) +  10, y + buttonHeight * 0.5f);
 
         }
     }
@@ -203,8 +203,7 @@ public class UI extends PApplet
     
       fill(204, 255, 255);
       textAlign(LEFT, CENTER);
-
-      text("Alien Type : \nWanted Ranking : \nWeight : \nHeight : \nKills : \nWeapon : " , (width / 2) - 180, 780 );
+      text("\nAlien Type : \nOrigin Planet : \nWanted Ranking : \nWeight : \nHeight : \nKills : \nWeapon : " , (width / 2) - 180, 780 );
       text(alienPick, (width / 2) - 50, 780 );
       
   }

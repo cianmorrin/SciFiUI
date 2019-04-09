@@ -27,7 +27,7 @@ public class Alien
 
     public String toString()
     {
-        return alien + "\n" + wanted + "\n" + height + "\n" + weight + "\n" + kills + "\n" + weapons  ;
+        return "\n" + alien + "\n" + planet + "\n" + wanted + "\n" + height + "\n" + weight + "\n" + kills + "\n" + weapons  ;
     }
 
     public Alien(TableRow tr)
