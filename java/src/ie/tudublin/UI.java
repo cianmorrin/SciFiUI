@@ -178,8 +178,8 @@ public class UI extends PApplet
         for (int i = 0; i < stars.size(); i++) {
           Planet s = stars.get(i);
 
-          float x = map(s.getxG(), -5, 5, border, width - border);
-          float y = map(s.getyG(), -5, 5, border, height - border);
+          float x = map(s.getxG(), -5, 5, (width / 2) + 300, width - 50);
+          float y = map(s.getyG(), -5, 5, 700, height - 50);
 
           if (dist(mouseX, mouseY, x, y) < s.getAbsMag() / 2) {
               if (selected1 == -1) {
@@ -316,25 +316,26 @@ public void drawStars() {
       if (selected1 != -1 && selected2 == -1) {
       Planet star1 = stars.get(selected1);
       stroke(255, 255, 0);
-      float x = map(star1.getxG(), -5, 5, border, width - border);
-      float y = map(star1.getyG(), -5, 5, border, height - border);
-
+      float x = map(star1.getxG(), -5, 5, (width / 2) + 300, width - 50);
+      float y = map(star1.getyG(), -5, 5, 700, height - 50);
+      strokeWeight(1);
       line(x, y, mouseX, mouseY);
     }
      else if (selected1 != -1 && selected2 != -1) {
       Planet star1 = stars.get(selected1);
-        float x1 = map(star1.getxG(), -5, 5, border, width - border);
-        float y1 = map(star1.getyG(), -5, 5, border, height - border);
+        float x1 = map(star1.getxG(), -5, 5, (width / 2) + 300, width - 50);
+        float y1 = map(star1.getyG(), -5, 5, 700, height - 50);
 
         Planet star2 = stars.get(selected2);
-        float x2 = map(star2.getxG(), -5, 5, border, width - border);
-        float y2 = map(star2.getyG(), -5, 5, border, height - border);
+        float x2 = map(star2.getxG(), -5, 5, (width / 2) + 300, width - 50);
+        float y2 = map(star2.getyG(), -5, 5, 700, height - 50);
 
+        strokeWeight(1);
         stroke(255, 255, 0);
         line(x1, y1, x2, y2);
         fill(255);
         float dist = dist(star1.getxG(), star1.getyG(), star1.getzG(), star2.getxG(), star2.getyG(), star2.getzG());
-        text("Distance from " + star1.getDisplayName() + " to " + star2.getDisplayName() + " is " + dist + " parsecs", border,
+        text("Distance from " + star1.getDisplayName() + " to " + star2.getDisplayName() + " is " + dist + " parsecs", (width / 2) + 270,
                 height - 25);
     }
 
