@@ -13,7 +13,12 @@ public class Alien
     private String weapons;
 
 	
+    public String toString()
+    {
+        return "\n" + alien + "\n" + planet + "\n" + wanted + "\n" + height + "\n" + weight + "\n" + kills + "\n" + weapons  ;
+    }
 
+    
     public Alien(String alien, String planet, String wanted, String height, String weight, String kills, String weapons)
     {
         this.alien = alien;
@@ -25,11 +30,7 @@ public class Alien
         this.weapons = weapons;
     }
 
-    public String toString()
-    {
-        return "\n" + alien + "\n" + planet + "\n" + wanted + "\n" + height + "\n" + weight + "\n" + kills + "\n" + weapons  ;
-    }
-
+ 
     public Alien(TableRow tr)
     {
         // Constructor chaining
