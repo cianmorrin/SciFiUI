@@ -280,6 +280,7 @@ public void drawStars() {
       float x = map(s.getxG(), -5, 5, (width / 2) + 300, width - 50);
       float y = map(s.getyG(), -5, 5, 700, height - 50);
 
+      strokeWeight(1);
       stroke(255, 255, 0);
       noFill();
       ellipse(x, y, s.getAbsMag(), s.getAbsMag());

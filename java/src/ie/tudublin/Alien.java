@@ -18,23 +18,22 @@ public class Alien
         return "\n" + alien + "\n" + planet + "\n" + wanted + "\n" + height + "\n" + weight + "\n" + kills + "\n" + weapons  ;
     }
 
-    
-    public Alien(String alien, String planet, String wanted, String height, String weight, String kills, String weapons)
+
+    public Alien(TableRow row)
     {
-        this.alien = alien;
-        this.planet = planet;
-        this.wanted = wanted;
-        this.height = height;
-        this.weight = weight;
-        this.kills = kills;
-        this.weapons = weapons;
+        alien = row.getString("Alien");
+        planet = row.getString("Planet");
+        wanted = row.getString("Wanted");
+        height = row.getString("Height");
+        weight = row.getString("Weight");
+        kills = row.getString("Kills");
+        weapons = row.getString("Weapon");
     }
 
  
-    public Alien(TableRow tr)
+    public Alien()
     {
-        // Constructor chaining
-        this(tr.getString("Alien"), tr.getString("Planet"),  tr.getString("Wanted"), tr.getString("Height"), tr.getString("Weight"), tr.getString("Kills"), tr.getString("Weapon"));
+
     }
 
     /**
