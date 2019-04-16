@@ -10,7 +10,7 @@ public class Power
     private float size;
     private UI yasc;
 
-    int[] data = { 30, 10, 45, 35, 60, 38, 75, 67 };
+    private float rotation;
 
     public Power(UI yasc, float x, float y, float speed, float size)
     {
@@ -20,23 +20,16 @@ public class Power
         this.speed = speed;
         this.size = size;
 
-
     }
 
     public void render()
     {
-        float lastAngle = 0;
-  for (int i = 0; i < data.length; i++) {
-    float gray = yasc.map(i, 0, data.length, 0, 255);
-    yasc.fill(gray);
-    yasc.arc(yasc.width/2, yasc.height/2, size, size, lastAngle, lastAngle+yasc.radians(data[i]));
-    lastAngle += yasc.radians(data[i]);
-  }
+     
     }
 
     public void update()
     {
-        
+      
     }
 
 

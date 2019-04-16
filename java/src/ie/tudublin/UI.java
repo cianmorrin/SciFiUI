@@ -1,6 +1,8 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
+import processing.core.PFont;
+
 import java.util.ArrayList;
 import processing.data.Table;
 import processing.data.TableRow;
@@ -19,6 +21,7 @@ public class UI extends PApplet
     Button b;
     MovingRect mb;
     Radar r;
+    PFont myFont;
     
 
 
@@ -258,6 +261,10 @@ public void settings()
 
        loadData();
        printStars();
+
+       
+       
+      
       
         
     }
@@ -266,11 +273,17 @@ public void settings()
     {
         
       background(3, 1, 26);
+      myFont = createFont("Copperplate-Light", 80);
+      fill(255);
+      textFont(myFont);
+      textAlign(CENTER, CENTER);
+      text("ALIEN \n HUNTER 3000", width / 2, 100);
+     
         
       stroke(255);
       p.render();
       p.update();
-      b.render();
+      //b.render();
       mb.render();
       mb.update();
 
@@ -319,4 +332,6 @@ public void settings()
         ch.render();
  
     }
+
+  
 }
