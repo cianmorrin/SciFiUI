@@ -12,7 +12,7 @@ public class UI extends PApplet
     ArrayList<Alien> alieninfo = new ArrayList<Alien>();
     private ArrayList<Planet> stars = new ArrayList<Planet>();
 
-    Compass s;
+    Power p;
     CentreHub ch;
     
     Shapes sh;
@@ -41,9 +41,6 @@ public class UI extends PApplet
     {
         return keys[c] || keys [Character.toUpperCase(c)];
     }
-
-    
-      
 
     
       void loadAliens()
@@ -185,32 +182,7 @@ public class UI extends PApplet
     
 
     
-    public void settings()
-    {
-        fullScreen();
-        loadAliens();
-        printAliens();
-        printAlienInfo();
-    }
-
     
-
-    public void setup()
-    {
-        
-        s = new Compass(this, width / 2, height / 2, 5, 50);
-        ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI, 0, 0); 
-        sh = new Shapes(this, width / 2, height / 2);
-        b = new Button(this, 50, 50, 100, 50, "I am a button");
-        mb = new MovingRect(this, 200, 0, 150, 10, "I am bigger moving button");
-        r = new Radar(this, 1, width - 200, 200, 100);
-      
-
-       loadData();
-       printStars();
-      
-        
-    }
 
     public void loadData() {
       Table table = loadTable("planets.csv", "header");
@@ -263,12 +235,41 @@ public void drawStars() {
   }
 }
 
+public void settings()
+    {
+        fullScreen();
+        loadAliens();
+        printAliens();
+        printAlienInfo();
+    }
+
+    
+
+    public void setup()
+    {
+        
+        p = new Power(this, width / 2, height / 2, 5, 200);
+        ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI, 0, 0); 
+        sh = new Shapes(this, width / 2, height / 2);
+        b = new Button(this, 50, 50, 100, 50, "I am a button");
+        mb = new MovingRect(this, 200, 0, 150, 10, "I am bigger moving button");
+        r = new Radar(this, 1, width - 200, 200, 100);
+      
+
+       loadData();
+       printStars();
+      
+        
+    }
+
     public void draw()
     {
         
       background(3, 1, 26);
         
       stroke(255);
+      p.render();
+      p.update();
       b.render();
       mb.render();
       mb.update();
@@ -312,8 +313,7 @@ public void drawStars() {
         //  s.render();
         // s.update();
 
-        //  calcWave();
-        //  renderWave();
+        
         strokeWeight(1);
         //sh.render();
         ch.render();
