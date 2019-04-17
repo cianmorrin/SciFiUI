@@ -22,6 +22,7 @@ public class UI extends PApplet
     MovingRect mb;
     Radar r;
     BarChart bc;
+    Speedometer sp;
     PFont myFont;
     
 
@@ -259,15 +260,10 @@ public void settings()
         mb = new MovingRect(this, 200, 0, 150, 10, "I am bigger moving button");
         r = new Radar(this, 1, width - 200, 200, 100);
         bc = new BarChart(this, 200, 200);
+        sp = new Speedometer(this, 200, 560);
 
        loadData();
        printStars();
-
-       
-       
-      
-      
-        
     }
 
     public void draw()
@@ -292,6 +288,7 @@ public void settings()
       r.render();
 
       bc.render();
+      sp.render();
         
       drawAlienButtons();
       displayAlienInfo();
