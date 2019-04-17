@@ -21,6 +21,7 @@ public class UI extends PApplet
     Button b;
     MovingRect mb;
     Radar r;
+    BarChart bc;
     PFont myFont;
     
 
@@ -257,7 +258,7 @@ public void settings()
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mb = new MovingRect(this, 200, 0, 150, 10, "I am bigger moving button");
         r = new Radar(this, 1, width - 200, 200, 100);
-      
+        bc = new BarChart(this, 200, 200);
 
        loadData();
        printStars();
@@ -289,6 +290,8 @@ public void settings()
 
       r.update();
       r.render();
+
+      bc.render();
         
       drawAlienButtons();
       displayAlienInfo();
