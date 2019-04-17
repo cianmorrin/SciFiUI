@@ -23,6 +23,7 @@ public class UI extends PApplet
     Radar r;
     BarChart bc;
     Speedometer sp;
+    VoiceComs vc;
     PFont myFont;
     
 
@@ -261,6 +262,7 @@ public void settings()
         r = new Radar(this, 1, width - 200, 200, 100);
         bc = new BarChart(this, 200, 200);
         sp = new Speedometer(this, 200, 560);
+        vc = new VoiceComs(this, width - 300, 560);
 
        loadData();
        printStars();
@@ -288,7 +290,10 @@ public void settings()
       r.render();
 
       bc.render();
+
       sp.render();
+
+      vc.render();
         
       drawAlienButtons();
       displayAlienInfo();
