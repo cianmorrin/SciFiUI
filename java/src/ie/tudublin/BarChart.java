@@ -9,9 +9,15 @@ public class BarChart
     private PVector pos;
     private UI ui;
   
-    private float x = 60;
+    private float x1 = 60;
+    private float x2 = 70;
+    private float x3 = 40;
+
     private float dx = 220;
-    private float cx = 1;
+    private float cx1 = 1;
+    private float cx2 = 0.8f;
+    private float cx3 = 1.1f;
+
 
     public BarChart(UI ui, float x, float y)
     {
@@ -48,19 +54,19 @@ public class BarChart
         ui.fill(41, 45, 70);
         ui.rect(pos.x - 110, (pos.y - 110), dx, 50);
         ui.fill(204, 255, 255);
-        ui.rect(pos.x - 110, (pos.y - 110), x, 50);
+        ui.rect(pos.x - 110, (pos.y - 110), x1, 50);
 
         //bar chart 1
         ui.fill(41, 45, 70);
         ui.rect(pos.x - 110, (pos.y - 50), dx, 50);
         ui.fill(204, 255, 255);
-        ui.rect(pos.x - 110, (pos.y - 50), x, 50);
+        ui.rect(pos.x - 110, (pos.y - 50), x2, 50);
 
         //bar chart 1
         ui.fill(41, 45, 70);
         ui.rect(pos.x - 110, (pos.y + 10), dx, 50);
         ui.fill(204, 255, 255);
-        ui.rect(pos.x - 110, (pos.y + 10), x, 50);
+        ui.rect(pos.x - 110, (pos.y + 10), x3, 50);
         
     }
 
@@ -69,10 +75,22 @@ public class BarChart
     public void update()
     {
         
-        x += cx;
-        if (x > 220 || x < 50 )
+        x1 += cx1;
+        if (x1 > 220 || x1 < 20 )
         {
-            cx *= -1;
+            cx1 *= -1;
+        }
+
+        x2 += cx2;
+        if (x2 > 220 || x2 < 10 )
+        {
+            cx2 *= -1;
+        }
+
+        x3 += cx3;
+        if (x3 > 220 || x3 < 30 )
+        {
+            cx3 *= -1;
         }
        
     }
