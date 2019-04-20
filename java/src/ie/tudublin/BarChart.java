@@ -44,11 +44,23 @@ public class BarChart
 
        
 
-        //bar charts
+        //bar chart 1
         ui.fill(41, 45, 70);
         ui.rect(pos.x - 110, (pos.y - 110), dx, 50);
         ui.fill(204, 255, 255);
         ui.rect(pos.x - 110, (pos.y - 110), x, 50);
+
+        //bar chart 1
+        ui.fill(41, 45, 70);
+        ui.rect(pos.x - 110, (pos.y - 50), dx, 50);
+        ui.fill(204, 255, 255);
+        ui.rect(pos.x - 110, (pos.y - 50), x, 50);
+
+        //bar chart 1
+        ui.fill(41, 45, 70);
+        ui.rect(pos.x - 110, (pos.y + 10), dx, 50);
+        ui.fill(204, 255, 255);
+        ui.rect(pos.x - 110, (pos.y + 10), x, 50);
         
     }
 
