@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import processing.data.Table;
 import processing.data.TableRow;
 
+import ddf.minim.AudioInput;
+import ddf.minim.Minim;
+import ddf.minim.analysis.FFT;
+
 
 public class UI extends PApplet
 {
@@ -25,6 +29,14 @@ public class UI extends PApplet
     Speedometer sp;
     VoiceComs vc;
     PFont myFont;
+
+    public static int SAMPLE_RATE = 44100;
+    public static int RESOLUTION = 8;
+    public static int FRAME_SIZE = 1024;
+
+    Minim minim;
+    AudioInput ai;
+    FFT fft;
     
 
 
@@ -247,6 +259,11 @@ public void settings()
         loadAliens();
         printAliens();
         printAlienInfo();
+
+        minim = new Minim(this);
+        ai = minim.getLineIn(Minim.MONO,  FRAME_SIZE, SAMPLE_RATE, RESOLUTION);
+        fft = new FFT(FRAME_SIZE, SAMPLE_RATE);
+        
     }
 
     
@@ -290,10 +307,27 @@ public void settings()
       r.render();
 
       bc.render();
+      bc.update();
 
       sp.render();
 
       vc.render();
+
+     //Code for Voice Coms
+       
+      float halfH = height / 2 + 75;
+
+      
+      float total = 0;
+
+      for( int i = 50; i < ai.bufferSize() - 580; i ++)
+      {
+          stroke(192,192,192);
+          line(i, halfH, i, halfH + ai.left.get(i) * 100);
+
+          total += (float) Math.abs(ai.left.get(i));
+      }
+
         
       drawAlienButtons();
       displayAlienInfo();

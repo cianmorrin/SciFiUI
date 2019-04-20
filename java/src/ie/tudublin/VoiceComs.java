@@ -1,13 +1,16 @@
 package ie.tudublin;
 
+
 import processing.core.PApplet;
 import processing.core.PVector;
 
-public class VoiceComs
+public class VoiceComs extends PApplet
 {
     
     private PVector pos;
     private UI ui;
+   
+
   
 
     public VoiceComs(UI ui, float x, float y)
@@ -15,6 +18,8 @@ public class VoiceComs
         this.ui = ui;
         pos = new PVector(x, y);
     }
+
+    float lerpedAverage = 0;
 
     public void render()
     {
@@ -39,6 +44,7 @@ public class VoiceComs
         ui.line((pos.x + 250 ), (pos.y + 70), (pos.x + 210 ), (pos.y + 70));
         ui.line((pos.x + 250 ), (pos.y + 70), (pos.x + 250 ), (pos.y + 30));
 
+      
 
         
     }
@@ -48,6 +54,12 @@ public class VoiceComs
     public void update()
     {
        
+        
+
+        
+
+       
+
     }
 
     
