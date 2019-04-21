@@ -9,6 +9,8 @@ public class Speedometer extends PApplet
     
     private PVector pos;
     private UI ui;
+    
+    //private float diameter = 300;
    
 
     public Speedometer(UI ui, float x, float y)
@@ -46,8 +48,10 @@ public class Speedometer extends PApplet
         ui.line((pos.x + 250 ), (pos.y + 70), (pos.x + 210 ), (pos.y + 70));
         ui.line((pos.x + 250 ), (pos.y + 70), (pos.x + 250 ), (pos.y + 30));
 
-        ui.line((pos.x + 50), (pos.y + 40), (pos.x + 50 ), (pos.y - 100));
+        ui.line((pos.x - 100), (pos.y + 40), (pos.x + 200 ), (pos.y + 40));
 
+        ui.fill(0);
+        ui.arc((pos.x + 50),(pos.y + 40), 300, 300, -PI, 0);
 
         
     }
