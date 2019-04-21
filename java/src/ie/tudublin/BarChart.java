@@ -51,22 +51,22 @@ public class BarChart
        
 
         //bar chart 1
-        ui.fill(41, 45, 70);
+        ui.fill(0);
         ui.rect(pos.x - 110, (pos.y - 110), dx, 50);
         ui.fill(204, 255, 255);
         ui.rect(pos.x - 110, (pos.y - 110), x1, 50);
 
-        //bar chart 1
-        ui.fill(41, 45, 70);
-        ui.rect(pos.x - 110, (pos.y - 50), dx, 50);
+        //bar chart 2
+        ui.fill(0);
+        ui.rect(pos.x - 110, (pos.y - 30), dx, 50);
         ui.fill(204, 255, 255);
-        ui.rect(pos.x - 110, (pos.y - 50), x2, 50);
+        ui.rect(pos.x - 110, (pos.y - 30), x2, 50);
 
-        //bar chart 1
-        ui.fill(41, 45, 70);
-        ui.rect(pos.x - 110, (pos.y + 10), dx, 50);
+        //bar chart 3
+        ui.fill(0);
+        ui.rect(pos.x - 110, (pos.y + 50), dx, 50);
         ui.fill(204, 255, 255);
-        ui.rect(pos.x - 110, (pos.y + 10), x3, 50);
+        ui.rect(pos.x - 110, (pos.y + 50), x3, 50);
         
     }
 
