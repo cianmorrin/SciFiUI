@@ -56,6 +56,19 @@ public class Speedometer extends PApplet
         ui.noStroke();
         ui.arc((pos.x + 50),(pos.y + 40), 80, 80, -PI, 0);
 
+        ui.fill(0);
+        ui.stroke(204, 255, 255);
+
+        //right box
+        ui.rect(pos.x + 170, pos.y  - 120, 60, 60);
+        //left box
+        ui.rect(pos.x - 130, pos.y  - 120, 60, 60);
+
+        ui.stroke(204, 255, 255);
+        ui.line(pos.x - 120, pos.y  - 90, pos.x - 80, pos.y  - 90);
+        ui.line(pos.x + 180, pos.y  - 90, pos.x + 220, pos.y  - 90);
+        ui.line(pos.x + 200, pos.y  - 110, pos.x + 200, pos.y  - 70);
+
 
         
     }
