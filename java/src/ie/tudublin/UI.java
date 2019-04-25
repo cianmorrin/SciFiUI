@@ -42,6 +42,8 @@ public class UI extends PApplet
 
     int selected1 = -1;
     int selected2 = -1;
+
+    int startCircle = 0;
     
     boolean[] keys = new boolean[1024];
 
@@ -134,6 +136,16 @@ public class UI extends PApplet
     
     public void mouseClicked() // when the mouse is clicked 
     {
+
+      if (mouseX > (width /2 - 50) && mouseX < (width /2 + 50)) // mouse's x co-ordinate is in between a button go in
+      {
+        if (mouseY > (height / 2 - 50) && mouseY < (height / 2 + 50)) //inbetween y co-ordinates of button
+        {
+           startCircle = 255;
+           loop();
+        }
+          
+      }
         int which = -1; //the variable which is initialised to -1
 
         if (mouseX > (border * 3) && mouseX < (border * 3) + buttonWidth) // mouse's x co-ordinate is in between a button go in
@@ -288,6 +300,7 @@ public void settings()
         fft = new FFT(FRAME_SIZE, SAMPLE_RATE);
         
         noLoop();
+       
     }
 
     
@@ -297,7 +310,7 @@ public void settings()
         
         p = new Power(this, width / 2, height / 2, 5, 200);
         ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI, 0, 0); 
-        sh = new Shapes(this, width / 2, height / 2);
+        sh = new Shapes(this, width / 2, 200);
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mb = new MovingRect(this, 200, 0, 150, 10, "I am bigger moving button");
         r = new Radar(this, 1, width - 200, 200, 100);
@@ -317,8 +330,16 @@ public void settings()
       textFont(myFont);
       textAlign(CENTER, CENTER);
       text("ALIEN \n HUNTER 3000", width / 2, 100);
+
+      sh.render();
+      sh.update();
+      strokeWeight(3f);
+
+      fill(startCircle);
+      stroke(204, 255, 255);
+      circle(width/2, height/2, 100);
      
-        
+      fill(255);
       stroke(255);
       p.render();
       p.update();
@@ -394,7 +415,7 @@ public void settings()
         sp.update();
         
         strokeWeight(1);
-        //sh.render();
+        
         ch.render();
 
  

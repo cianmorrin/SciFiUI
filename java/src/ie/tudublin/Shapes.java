@@ -19,11 +19,26 @@ public class Shapes
 
     public void render()
     {   
-        ui.fill(0);
+        ui.noFill();
+        ui.strokeWeight(0.5f);
         ui.rect(x, y, 40, 40);
         ui.pushMatrix();
-        ui.translate(60, 80);
+        ui.translate(100, 200);
         ui.rect(x, y, 40, 40);
         ui.popMatrix();
+        ui.pushMatrix();
+        ui.translate(30, 50);
+        ui.rect(x, y, 40, 40);
+        ui.popMatrix();
+        ui.pushMatrix();
+        ui.translate(400, 60);
+        ui.rect(x, y, 40, 40);
+        ui.popMatrix();
+    }
+
+    public void update()
+    {
+        
+
     }
 }

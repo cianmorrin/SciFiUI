@@ -15,7 +15,9 @@ public class Speedometer extends PApplet
     float x; // centre x
     float y; // centre y
 
-    float r=100f; // radius
+    float radius=100f; // radius
+    private float theta = 0;
+    private float frequency = 1;
 
     int innerRadius =65; // text radius
     public int textCounter = 80; // text counter
@@ -72,8 +74,8 @@ public class Speedometer extends PApplet
         for (int i = 0; i <240 ; i+=30) {
     
             ui.stroke(204, 255, 255);
-            xradiusLine=x+r*(cos(radians(30 + i)));
-            yradiusLine=y-r*(sin(radians(30+ i)));
+            xradiusLine=x+radius*(cos(radians(30 + i)));
+            yradiusLine=y-radius*(sin(radians(30+ i)));
             ui.line(x, y, xradiusLine, yradiusLine);
     
         }
@@ -90,6 +92,11 @@ public class Speedometer extends PApplet
         ui.triangle(0,10,0,-10,-70,0);
         ui.ellipse(0,0,20,20); // it must be drawn after triangle
         ui.popMatrix(); // previous coordinate system must be restored
+
+        // ui.fill(0);
+        // float x2 = x + (float) Math.sin(theta) * radius;
+        // float y2 = y - (float) Math.cos(theta) * radius;
+        // ui.line(x, y, x2, y2);
     
         int textCounter = 80;
         for (int i = 0; i <240 ; i+=30) {
@@ -102,18 +109,20 @@ public class Speedometer extends PApplet
             ui.textAlign(CENTER,CENTER); // this must be called as mentioned
             ui.text(textCounter,xradiusLine,yradiusLine);
             textCounter -=10;
-           // ui.noLoop();
+          
         }
 
         
     }
 
     
+    // float timeDelta = 1.0f / 60.0f;
 
     public void update()
     {
-       
+        // theta += PApplet.TWO_PI * timeDelta * frequency;
     }
+
 
     
 

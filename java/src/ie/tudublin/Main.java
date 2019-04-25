@@ -11,7 +11,6 @@ public class Main
         processing.core.PApplet.runSketch( a, new UI());
 		
 	}
-
 	
 
 	public static void main(String[] args)
