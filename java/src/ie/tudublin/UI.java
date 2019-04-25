@@ -61,18 +61,19 @@ public class UI extends PApplet
     }
 
     
-      void loadAliens()
-      {
-          Table table = loadTable("alien.csv", "header");
-          for(TableRow tr:table.rows())
-          {
-              Alien a = new Alien(tr);
-              aliens.add(a);
-          }        
-      }
+    void loadAliens()
+    {
+        Table table = loadTable("alien.csv", "header");
+        for(TableRow tr:table.rows())
+        {
+           Alien a = new Alien(tr);
+           aliens.add(a);
+       }        
+    }
   
      
-      public void printAliens() {
+    public void printAliens() 
+    {
           for (Alien a : aliens) {
               System.out.println(a);
           }
@@ -89,6 +90,10 @@ public class UI extends PApplet
     float buttonWidth = 150;
     float buttonHeight = 36;
     String alienPick = " ";
+
+
+    float speedPlus = 500;
+    float speedNeg = 500;
     
 
       void drawAlienButtons()
@@ -106,7 +111,7 @@ public class UI extends PApplet
             rect(x, y, buttonWidth, buttonHeight); // rectangle
             
             textAlign(LEFT, CENTER);
-            fill(204, 255, 255);
+            fill(255);
             text(p.getAlien() ,  x +  10, y + buttonHeight * 0.5f);
         }
 
@@ -120,7 +125,7 @@ public class UI extends PApplet
             rect(x * 3, y, buttonWidth , buttonHeight); // rectangle
             
             textAlign(LEFT, CENTER);
-            fill(204, 255, 255);
+            fill(255);
             text(p.getAlien() ,  (x * 3) +  10, y + buttonHeight * 0.5f);
 
         }
@@ -184,19 +189,23 @@ public class UI extends PApplet
       }
 
 
-        
+      if (mouseX > (border * 3) && mouseX < (border * 3) + buttonWidth) // mouse's x co-ordinate is in between a button go in
+      {
+          for(int i = 0 ; i < aliens.size() ; i ++) // iterating over all items 
+          {
+              float y = yborder + (i * (buttonHeight )); // y is the y co-ordinate for each button
+              if (mouseY > y && mouseY < y + buttonHeight) //inbetween y co-ordinates of button
+              {
+                  which = i + 1; // which is given the value of the place of whatever button is clicked
+                  break;
+              }
+          }
+      }
 
 
 
 
 
-
-
-
-
-
-
-        
     }
 
     
@@ -205,7 +214,7 @@ public class UI extends PApplet
       stroke(204, 255, 255);
       rect( (width / 2) - 200, 700, buttonWidth + 240, 180); // rectangle
     
-      fill(204, 255, 255);
+      fill(255);
       textAlign(LEFT, CENTER);
       text("\nAlien Type : \nOrigin Planet : \nWanted Ranking : \nWeight : \nHeight : \nKills : \nWeapon : " , (width / 2) - 180, 780 );
       text(alienPick, (width / 2) - 50, 780 );
@@ -278,6 +287,7 @@ public void settings()
         ai = minim.getLineIn(Minim.MONO,  FRAME_SIZE, SAMPLE_RATE, RESOLUTION);
         fft = new FFT(FRAME_SIZE, SAMPLE_RATE);
         
+        noLoop();
     }
 
     
@@ -301,7 +311,6 @@ public void settings()
 
     public void draw()
     {
-        
       background(3, 1, 26);
       myFont = createFont("Copperplate-Light", 80);
       fill(255);
@@ -323,7 +332,10 @@ public void settings()
       bc.render();
       bc.update();
 
+      
       sp.render();
+      sp.update();
+       //sp.referenceLines();
 
       vc.render();
 
@@ -378,11 +390,13 @@ public void settings()
 
         //  s.render();
         // s.update();
-
+        sp.render();
+        sp.update();
         
         strokeWeight(1);
         //sh.render();
         ch.render();
+
  
     }
 

@@ -30,9 +30,9 @@ public class CentreHub
 
     public void render()
     {
-        
         ui.noFill();
         ui.stroke(204, 255, 255);
+       
         
         ui.strokeWeight(6);
         ui.circle(width/2, height/2, 300);
