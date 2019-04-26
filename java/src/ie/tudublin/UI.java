@@ -260,39 +260,43 @@ public class UI extends PApplet
     
 
 
-    public void loadData() {
+    public void loadData() 
+    {
       Table table = loadTable("planets.csv", "header");
 
-      for (TableRow row : table.rows()) {
-        Planet star = new Planet(row);
+      for (TableRow row : table.rows()) 
+      {
+          Planet star = new Planet(row);
           stars.add(star);
       }
-  }
-
-  public void printStars() {
-    for (Planet star : stars) {
-        System.out.println(star);
     }
+
+     public void printStars() 
+     {
+         for (Planet star : stars) 
+         {
+            System.out.println(star);
+         }
 }
 
 
-private void drawGrid() 
-{
-  textAlign(CENTER, CENTER);
-  for (int i = -5; i <= 5; i++) 
-  {
-      float x = map(i, -5, 5, (width / 2) + 300, width - 50);
-      stroke(41, 45, 70);
-      line(x, 700, x, height - 50);
-      fill(255);
-      text(i, x, 690 );
-      stroke(41, 45, 70);
-      float y = map(i, -5, 5, 700, height - 50);
-      line((width / 2) + 300, y, width - 50, y);
-      fill(255);
-      text(i, (width /2 ) + 270, y);
-  }
-}
+    private void drawGrid() 
+    {
+    textAlign(CENTER, CENTER);
+    for (int i = -5; i <= 5; i++) 
+    {
+        float x = map(i, -5, 5, (width / 2) + 300, width - 50);
+        stroke(41, 45, 70);
+        line(x, 700, x, height - 50);
+        fill(255);
+        text(i, x, 690 );
+        stroke(41, 45, 70);
+        float y = map(i, -5, 5, 700, height - 50);
+        line((width / 2) + 300, y, width - 50, y);
+        fill(255);
+        text(i, (width /2 ) + 270, y);
+    }
+    }
 
     public void drawStars()
     {
@@ -302,8 +306,8 @@ private void drawGrid()
           float x = map(s.getxG(), -5, 5, (width / 2) + 300, width - 50);
           float y = map(s.getyG(), -5, 5, 700, height - 50);
 
-            strokeWeight(1);
-            stroke(255, 255, 0);
+            strokeWeight(1.5f);
+            stroke(229, 204, 255);
             noFill();
             ellipse(x, y, s.getAbsMag(), s.getAbsMag());
 
@@ -398,7 +402,7 @@ private void drawGrid()
       if (selected1 != -1 && selected2 == -1) 
       {
         Planet star1 = stars.get(selected1);
-        stroke(255, 255, 0);
+        stroke(255);
         float x = map(star1.getxG(), -5, 5, (width / 2) + 300, width - 50);
         float y = map(star1.getyG(), -5, 5, 700, height - 50);
         strokeWeight(1);
@@ -416,11 +420,11 @@ private void drawGrid()
             float y2 = map(star2.getyG(), -5, 5, 700, height - 50);
 
             strokeWeight(1);
-            stroke(255, 255, 0);
+            stroke(255);
             line(x1, y1, x2, y2);
             fill(255);
             float dist = dist(star1.getxG(), star1.getyG(), star1.getzG(), star2.getxG(), star2.getyG(), star2.getzG());
-            text("Distance from " + star1.getDisplayName() + " to " + star2.getDisplayName() + " is " + dist + " parsecs", (width / 2) + 270,
+            text("Distance from " + star1.getDisplayName() + " to " + star2.getDisplayName() + " is " + dist + " parsecs", (width / 2) + 240,
                     height - 25);
           }
 

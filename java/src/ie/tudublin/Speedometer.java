@@ -9,25 +9,22 @@ public class Speedometer extends PApplet
     
     private PVector pos;
     private UI ui;
-    float xradiusLine;
-    float yradiusLine;
-    private int p;
+    private float xradiusLine;
+    private float yradiusLine;
    
-    float x; // centre x
-    float y; // centre y
+    private float x; 
+    private float y; 
 
-    float pointerLineX  ;
-    float pointerLineY  ;
+    private float pointerLineX;
+    private float pointerLineY;
 
-    float moverX = 210;
-    float moverY = 210;
+    private float moverX = 210;
+    private float moverY = 210;
 
-    float printX;
-    float printY;
+    
 
     float radius=100f; // radius
-    private float theta = 0;
-    private float frequency = 1;
+    
 
     int innerRadius =65; // text radius
     public int textCounter = 80; // text counter
@@ -44,8 +41,6 @@ public class Speedometer extends PApplet
 
     public void render()
     {
-        
-
         ui.noStroke();
         ui.fill(41, 45, 70);
         ui.rect((pos.x - 150 ) , (pos.y - 150), 400, 220);
@@ -73,63 +68,58 @@ public class Speedometer extends PApplet
         x = pos.x + 50;
         y = pos.y - 40;
 
-        
-
-        
-        ui.strokeWeight(3); // at-least 2 but atmost 3
+        // Large ellipse
+        ui.strokeWeight(3); 
         ui.stroke(204, 255, 255);
         ui.fill(41, 45, 70);
-        ui.ellipse(x, y, 200, 200); // height = width =200px
-        ui.strokeWeight(2); // define stroke weigth of markers
-    
-        for (int i = 0; i <240 ; i+=30) {
-    
+        ui.ellipse(x, y, 200, 200); 
+        ui.strokeWeight(2); 
+
+        // Markers lines behind ellipse
+        for (int i = 0; i <240 ; i+=30) 
+        {
             ui.stroke(204, 255, 255);
             xradiusLine=x+radius*(cos(radians(30 + i)));
             yradiusLine=y-radius*(sin(radians(30+ i)));
             ui.line(x, y, xradiusLine, yradiusLine);
-    
         }
-    
-        ui.stroke(204, 255, 255); // stroke must be removed
-        ui.fill(0); // fill must be background color
-        ui.ellipse(x, y, 160, 160); // it will hide the marker lines and align text
+        
+        // Smaller ellipse infront
+        ui.stroke(204, 255, 255); 
+        ui.fill(0); 
+        ui.ellipse(x, y, 160, 160); 
 
+        // USed for pointer, will be manipulated in draw method
         pointerLineX=x+radius*(cos(radians(30 + moverX)));
         pointerLineY=y-radius*(sin(radians(30 + moverY)));
 
-        printX=x+radius*(cos(radians(30)));
-        printY=y-radius*(sin(radians(30)));
 
 
         ui.line(x, y, pointerLineX, pointerLineY);
 
+        // Example use of pushMatrix, Translate etc
         ui.noStroke();
-        ui.pushMatrix(); // current coordinate system must be saved
-        ui.translate(x,y); // it must be called before rotate with centre
+        ui.pushMatrix(); 
+        ui.translate(x,y); 
         ui.rotate(-PI/3);
-        ui.fill(204, 255, 255); // it must be called to set fill of pointer
-        //ui.triangle(0,10,0,-10,-70,0);
-        ui.ellipse(0,0,20,20); // it must be drawn after triangle
-        ui.popMatrix(); // previous coordinate system must be restored
+        ui.fill(204, 255, 255);
+        ui.ellipse(0,0,20,20);
+        ui.popMatrix(); 
         
-        
-        // ui.fill(0);
-        // float x2 = x + (float) Math.sin(theta) * radius;
-        // float y2 = y - (float) Math.cos(theta) * radius;
-        // ui.line(x, y, x2, y2);
+       
     
-        int textCounter = 80;
-        for (int i = 0; i <240 ; i+=30) {
-    
+        int speedNums = 800;
+
+        // Method for drawing numbers in correct position
+        for (int i = 0; i <240 ; i+=30) 
+        {
             xradiusLine = x + innerRadius * (cos(radians(30+i)));
-            yradiusLine=y- innerRadius *(sin(radians(30+i)));
+            yradiusLine= y- innerRadius *(sin(radians(30+i)));
             ui.stroke(127);
             ui.fill(255);
-            //point(x1, y1); // debug text and angle purposes
-            ui.textAlign(CENTER,CENTER); // this must be called as mentioned
-            ui.text(textCounter,xradiusLine,yradiusLine);
-            textCounter -=10;
+            ui.textAlign(CENTER,CENTER); 
+            ui.text(speedNums,xradiusLine,yradiusLine);
+            speedNums -=100;
           
         }
        
@@ -141,7 +131,9 @@ public class Speedometer extends PApplet
 
     public void update()
     {
-        
+        // Space bar acts as an accelerator
+        // Decreases when it is let off
+        // Has max and min limits
         if (ui.checkKey(' '))
         {
             moverX -= 2;
