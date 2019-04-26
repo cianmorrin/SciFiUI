@@ -12,7 +12,7 @@ public class  VoiceComs
 
    
     public VoiceComs        
-(UI ui, float x, float y)
+    (UI ui, float x, float y)
     {
         this.ui = ui;
         pos = new PVector(x, y);

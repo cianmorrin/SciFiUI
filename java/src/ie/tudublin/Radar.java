@@ -10,8 +10,6 @@ public class Radar
     private float frequency;
     private UI ui;
     private float theta = 0;
-    private float x1;
-    private float y1;
 
     public Radar(UI ui, float frequency, float x, float y, float radius)
     {
@@ -58,21 +56,17 @@ public class Radar
     {
         theta += PApplet.TWO_PI * timeDelta * frequency;
 
-
-        float pointillize = ui.map(100, 0, ui.width,2 , 78);
+        // Random dots appearing in radar 
+        float randomDots = ui.map(100, 0, ui.width,2 , 78);
         float x1 = (ui.random(0, 2000));
         float y1 = (ui.random(120, 250));
        
         ui.fill(255);
         
-        if( x1 > 1170 && x1 < 1270){
-            ui.ellipse(x1, y1, pointillize, pointillize);
+        if( x1 > 1170 && x1 < 1270)
+        {
+            ui.ellipse(x1, y1, randomDots, randomDots);
         }
-        
-        
-           
-        
-       
         
     }
 

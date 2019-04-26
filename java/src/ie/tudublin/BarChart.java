@@ -74,7 +74,7 @@ public class BarChart
 
     public void update()
     {
-        
+        // Changing values for each bar chart
         x1 += cx1;
         if (x1 > 220 || x1 < 20 )
         {

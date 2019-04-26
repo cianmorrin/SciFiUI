@@ -30,17 +30,15 @@ public class CentreHub
 
     public void render()
     {
+        // Drawing of centre circle
         ui.noFill();
         ui.stroke(204, 255, 255);
        
-        
         ui.strokeWeight(6);
         ui.circle(width/2, height/2, 300);
 
         ui.strokeWeight(4);
         ui.circle(width/2, height/2, 250);
-
-        
        
         ui.strokeWeight(8);
         ui.arc(width/2, height/2, 310, 310, PI+QUARTER_PI, TWO_PI);
@@ -51,9 +49,12 @@ public class CentreHub
         ui.strokeWeight(1);
         ui.arc(width/2, height/2, 320, 320, PI, PI+QUARTER_PI);
 
-        if (PApplet.second() % 2 == 0) {  
+        // From here all arcs rotate 
+        if (PApplet.second() % 2 == 0)
+         {  
             jitter = ui.random(-0.1f, 0.1f);
           }
+          
           angle = angle + jitter;
           float c = PApplet.cos(angle);
           ui.translate(width/2, height/2);
@@ -84,18 +85,6 @@ public class CentreHub
        
         ui.strokeWeight(4);
         ui.arc(0, 0, 370, 370, PI+QUARTER_PI, TWO_PI);
-
-
-            
-        
-
-
-
-
-
-
-
-
 
     }
 }

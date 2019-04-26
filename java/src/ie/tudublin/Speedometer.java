@@ -9,19 +9,15 @@ public class Speedometer extends PApplet
     
     private PVector pos;
     private UI ui;
+
     private float xradiusLine;
     private float yradiusLine;
-   
     private float x; 
     private float y; 
-
     private float pointerLineX;
     private float pointerLineY;
-
     private float moverX = 210;
     private float moverY = 210;
-
-    
 
     float radius=100f; // radius
     
@@ -122,13 +118,10 @@ public class Speedometer extends PApplet
             speedNums -=100;
           
         }
-       
         ui.strokeWeight(3);
     }
 
     
- 
-
     public void update()
     {
         // Space bar acts as an accelerator
@@ -156,6 +149,188 @@ public class Speedometer extends PApplet
             }
         }
         
+    }
+
+    /**
+     * @return the pos
+     */
+    public PVector getPos() {
+        return pos;
+    }
+
+    /**
+     * @param pos the pos to set
+     */
+    public void setPos(PVector pos) {
+        this.pos = pos;
+    }
+
+    /**
+     * @return the ui
+     */
+    public UI getUi() {
+        return ui;
+    }
+
+    /**
+     * @param ui the ui to set
+     */
+    public void setUi(UI ui) {
+        this.ui = ui;
+    }
+
+    /**
+     * @return the xradiusLine
+     */
+    public float getXradiusLine() {
+        return xradiusLine;
+    }
+
+    /**
+     * @param xradiusLine the xradiusLine to set
+     */
+    public void setXradiusLine(float xradiusLine) {
+        this.xradiusLine = xradiusLine;
+    }
+
+    /**
+     * @return the yradiusLine
+     */
+    public float getYradiusLine() {
+        return yradiusLine;
+    }
+
+    /**
+     * @param yradiusLine the yradiusLine to set
+     */
+    public void setYradiusLine(float yradiusLine) {
+        this.yradiusLine = yradiusLine;
+    }
+
+    /**
+     * @return the x
+     */
+    public float getX() {
+        return x;
+    }
+
+    /**
+     * @param x the x to set
+     */
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    /**
+     * @return the y
+     */
+    public float getY() {
+        return y;
+    }
+
+    /**
+     * @param y the y to set
+     */
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    /**
+     * @return the pointerLineX
+     */
+    public float getPointerLineX() {
+        return pointerLineX;
+    }
+
+    /**
+     * @param pointerLineX the pointerLineX to set
+     */
+    public void setPointerLineX(float pointerLineX) {
+        this.pointerLineX = pointerLineX;
+    }
+
+    /**
+     * @return the pointerLineY
+     */
+    public float getPointerLineY() {
+        return pointerLineY;
+    }
+
+    /**
+     * @param pointerLineY the pointerLineY to set
+     */
+    public void setPointerLineY(float pointerLineY) {
+        this.pointerLineY = pointerLineY;
+    }
+
+    /**
+     * @return the moverX
+     */
+    public float getMoverX() {
+        return moverX;
+    }
+
+    /**
+     * @param moverX the moverX to set
+     */
+    public void setMoverX(float moverX) {
+        this.moverX = moverX;
+    }
+
+    /**
+     * @return the moverY
+     */
+    public float getMoverY() {
+        return moverY;
+    }
+
+    /**
+     * @param moverY the moverY to set
+     */
+    public void setMoverY(float moverY) {
+        this.moverY = moverY;
+    }
+
+    /**
+     * @return the radius
+     */
+    public float getRadius() {
+        return radius;
+    }
+
+    /**
+     * @param radius the radius to set
+     */
+    public void setRadius(float radius) {
+        this.radius = radius;
+    }
+
+    /**
+     * @return the innerRadius
+     */
+    public int getInnerRadius() {
+        return innerRadius;
+    }
+
+    /**
+     * @param innerRadius the innerRadius to set
+     */
+    public void setInnerRadius(int innerRadius) {
+        this.innerRadius = innerRadius;
+    }
+
+    /**
+     * @return the textCounter
+     */
+    public int getTextCounter() {
+        return textCounter;
+    }
+
+    /**
+     * @param textCounter the textCounter to set
+     */
+    public void setTextCounter(int textCounter) {
+        this.textCounter = textCounter;
     }
     
 }
