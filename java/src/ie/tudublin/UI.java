@@ -133,6 +133,26 @@ public class UI extends PApplet
         }
     }
 
+    void writeTitles()
+    {
+        textSize(18);  
+        fill(204, 255, 255); 
+        text("INTERGALACTIC SPEEDOMETER",1190, 395);
+        text("ALIEN RADAR", 1240, 35);
+        text("EXTRATERRESTRIAL VOICE COMS",250, 395);
+        text("SHIP STATUS", 200, 35);
+
+
+        // for bar charts
+        
+        text("Nuclear power : ", 150, 75);
+        text("Boosters :  ", 128, 157);
+        text("Heat pipe : ", 128, 235);
+
+
+
+
+    }
     
     public void mouseClicked() // when the mouse is clicked 
     {
@@ -331,6 +351,7 @@ public void settings()
       textAlign(CENTER, CENTER);
       text("ALIEN \n HUNTER 3000", width / 2, 100);
 
+
       sh.render();
       sh.update();
       strokeWeight(3f);
@@ -411,8 +432,11 @@ public void settings()
 
         //  s.render();
         // s.update();
+        
         sp.render();
-        sp.update();
+       // sp.update();
+
+       writeTitles();
         
         strokeWeight(1);
         

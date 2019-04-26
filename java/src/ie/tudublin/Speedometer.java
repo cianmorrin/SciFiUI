@@ -29,14 +29,12 @@ public class Speedometer extends PApplet
         pos = new PVector(x, y);
     }
 
-    public void referenceLines() {
-
-       
-        ui.noLoop();
-    }
+    
 
     public void render()
     {
+        
+
         ui.noStroke();
         ui.fill(41, 45, 70);
         ui.rect((pos.x - 150 ) , (pos.y - 150), 400, 220);
@@ -58,7 +56,7 @@ public class Speedometer extends PApplet
         ui.line((pos.x + 250 ), (pos.y + 70), (pos.x + 210 ), (pos.y + 70));
         ui.line((pos.x + 250 ), (pos.y + 70), (pos.x + 250 ), (pos.y + 30));
 
-
+       
        
         // Centre point for speedometer
         x = pos.x + 50;
