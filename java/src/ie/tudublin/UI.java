@@ -20,7 +20,6 @@ public class UI extends PApplet
 
     Power p;
     CentreHub ch;
-    
     Shapes sh;
     Button b;
     MovingRect mb;
@@ -39,13 +38,43 @@ public class UI extends PApplet
     FFT fft;
     
 
-
     int selected1 = -1;
     int selected2 = -1;
-
     int startCircle = 0;
-    
     boolean[] keys = new boolean[1024];
+
+
+    public void settings()
+    {
+        fullScreen();
+        loadAliens();
+        printAliens();
+        printAlienInfo();
+
+        minim = new Minim(this);
+        ai = minim.getLineIn(Minim.MONO,  FRAME_SIZE, SAMPLE_RATE, RESOLUTION);
+        fft = new FFT(FRAME_SIZE, SAMPLE_RATE);
+        
+        noLoop();    
+    }
+
+
+    public void setup()
+    {
+        p = new Power(this, width / 2, height / 2, 5, 200);
+        ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI, 0, 0); 
+        sh = new Shapes(this, width / 2, 200);
+        b = new Button(this, 50, 50, 100, 50, "I am a button");
+        mb = new MovingRect(this, 200, 0, 150, 10, "I am bigger moving button");
+        r = new Radar(this, 1, width - 200, 200, 100);
+        bc = new BarChart(this, 200, 200);
+        vc = new VoiceComs(this, 200, 560);
+        sp = new Speedometer(this, width - 300, 560);
+
+        loadData();
+        printStars();
+    
+    }
 
     public void keyPressed()
     {
@@ -98,9 +127,9 @@ public class UI extends PApplet
     float speedNeg = 500;
     
 
-      void drawAlienButtons()
-     {
-         stroke(204, 255, 255);
+    public void drawAlienButtons()
+    {
+        stroke(204, 255, 255);
         line(0, 675, width, 675);
         textSize(15);
         for(int i = 0 ; i < aliens.size() ; i += 2)
@@ -132,27 +161,6 @@ public class UI extends PApplet
 
         }
     }
-
-    void writeTitles()
-    {
-        textSize(18);  
-        fill(204, 255, 255); 
-        text("INTERGALACTIC SPEEDOMETER",1190, 395);
-        text("ALIEN RADAR", 1240, 35);
-        text("EXTRATERRESTRIAL VOICE COMS",250, 395);
-        text("SHIP STATUS", 200, 35);
-
-
-        // for bar charts
-        
-        text("Nuclear power : ", 150, 75);
-        text("Boosters :  ", 128, 157);
-        text("Heat pipe : ", 128, 235);
-
-
-
-
-    }
     
     public void mouseClicked() // when the mouse is clicked 
     {
@@ -166,9 +174,10 @@ public class UI extends PApplet
         }
           
       }
-        int which = -1; //the variable which is initialised to -1
+    
+      int which = -1; //the variable which is initialised to -1
 
-        if (mouseX > (border * 3) && mouseX < (border * 3) + buttonWidth) // mouse's x co-ordinate is in between a button go in
+      if (mouseX > (border * 3) && mouseX < (border * 3) + buttonWidth) // mouse's x co-ordinate is in between a button go in
         {
             for(int i = 0 ; i < aliens.size() ; i ++) // iterating over all items 
             {
@@ -181,7 +190,7 @@ public class UI extends PApplet
             }
         }
 
-        if (mouseX > border && mouseX < border + buttonWidth) // mouse's x co-ordinate is in between a button go in
+     if (mouseX > border && mouseX < border + buttonWidth) // mouse's x co-ordinate is in between a button go in
         {
             for(int i = 0 ; i < aliens.size() ; i ++) // iterating over all items 
             {
@@ -234,10 +243,6 @@ public class UI extends PApplet
           }
       }
 
-
-
-
-
     }
 
     
@@ -254,8 +259,6 @@ public class UI extends PApplet
   }
     
 
-    
-    
 
     public void loadData() {
       Table table = loadTable("planets.csv", "header");
@@ -273,9 +276,11 @@ public class UI extends PApplet
 }
 
 
-private void drawGrid() {
+private void drawGrid() 
+{
   textAlign(CENTER, CENTER);
-  for (int i = -5; i <= 5; i++) {
+  for (int i = -5; i <= 5; i++) 
+  {
       float x = map(i, -5, 5, (width / 2) + 300, width - 50);
       stroke(41, 45, 70);
       line(x, 700, x, height - 50);
@@ -289,59 +294,43 @@ private void drawGrid() {
   }
 }
 
-public void drawStars() {
-  textAlign(LEFT, CENTER);
-  for (Planet s : stars) {
-      float x = map(s.getxG(), -5, 5, (width / 2) + 300, width - 50);
-      float y = map(s.getyG(), -5, 5, 700, height - 50);
-
-      strokeWeight(1);
-      stroke(255, 255, 0);
-      noFill();
-      ellipse(x, y, s.getAbsMag(), s.getAbsMag());
-
-      stroke(0, 255, 255);
-      line(x, y - 5, x, y + 5);
-      line(x - 5, y, x + 5, y);
-      fill(255);
-      text(s.getDisplayName(), x + 20, y);
-  }
-}
-
-public void settings()
+    public void drawStars()
     {
-        fullScreen();
-        loadAliens();
-        printAliens();
-        printAlienInfo();
+         textAlign(LEFT, CENTER);
+        for (Planet s : stars) 
+        {
+          float x = map(s.getxG(), -5, 5, (width / 2) + 300, width - 50);
+          float y = map(s.getyG(), -5, 5, 700, height - 50);
 
-        minim = new Minim(this);
-        ai = minim.getLineIn(Minim.MONO,  FRAME_SIZE, SAMPLE_RATE, RESOLUTION);
-        fft = new FFT(FRAME_SIZE, SAMPLE_RATE);
-        
-        noLoop();
-       
+            strokeWeight(1);
+            stroke(255, 255, 0);
+            noFill();
+            ellipse(x, y, s.getAbsMag(), s.getAbsMag());
+
+            stroke(0, 255, 255);
+            line(x, y - 5, x, y + 5);
+            line(x - 5, y, x + 5, y);
+            fill(255);
+            text(s.getDisplayName(), x + 20, y);
+         }
     }
 
-    
-
-    public void setup()
+    public void writeTitles()
     {
-        
-        p = new Power(this, width / 2, height / 2, 5, 200);
-        ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI, 0, 0); 
-        sh = new Shapes(this, width / 2, 200);
-        b = new Button(this, 50, 50, 100, 50, "I am a button");
-        mb = new MovingRect(this, 200, 0, 150, 10, "I am bigger moving button");
-        r = new Radar(this, 1, width - 200, 200, 100);
-        bc = new BarChart(this, 200, 200);
-        vc = new VoiceComs(this, 200, 560);
-        sp = new Speedometer(this, width - 300, 560);
+        textSize(18);  
+        fill(204, 255, 255); 
+        text("INTERGALACTIC SPEEDOMETER",1190, 395);
+        text("ALIEN RADAR", 1240, 35);
+        text("EXTRATERRESTRIAL VOICE COMS",250, 395);
+        text("SHIP STATUS", 200, 35);
 
-       loadData();
-       printStars();
-       
+        // for bar charts
+        
+        text("Nuclear power : ", 150, 75);
+        text("Boosters :  ", 128, 157);
+        text("Heat pipe : ", 128, 235);
     }
+
 
     public void draw()
     {
@@ -350,7 +339,7 @@ public void settings()
       fill(255);
       textFont(myFont);
       textAlign(CENTER, CENTER);
-      text("ALIEN \n HUNTER 3000", width / 2, 100);
+      text("ALIEN \n HUNTER XCON", width / 2, 100);
 
 
       sh.render();
@@ -379,7 +368,7 @@ public void settings()
       
       sp.render();
       sp.update();
-       //sp.referenceLines();
+    
 
       vc.render();
 
@@ -406,39 +395,41 @@ public void settings()
       drawGrid();
       drawStars();
 
-      if (selected1 != -1 && selected2 == -1) {
-      Planet star1 = stars.get(selected1);
-      stroke(255, 255, 0);
-      float x = map(star1.getxG(), -5, 5, (width / 2) + 300, width - 50);
-      float y = map(star1.getyG(), -5, 5, 700, height - 50);
-      strokeWeight(1);
-      line(x, y, mouseX, mouseY);
-    }
-     else if (selected1 != -1 && selected2 != -1) {
-      Planet star1 = stars.get(selected1);
-        float x1 = map(star1.getxG(), -5, 5, (width / 2) + 300, width - 50);
-        float y1 = map(star1.getyG(), -5, 5, 700, height - 50);
-
-        Planet star2 = stars.get(selected2);
-        float x2 = map(star2.getxG(), -5, 5, (width / 2) + 300, width - 50);
-        float y2 = map(star2.getyG(), -5, 5, 700, height - 50);
-
-        strokeWeight(1);
+      if (selected1 != -1 && selected2 == -1) 
+      {
+        Planet star1 = stars.get(selected1);
         stroke(255, 255, 0);
-        line(x1, y1, x2, y2);
-        fill(255);
-        float dist = dist(star1.getxG(), star1.getyG(), star1.getzG(), star2.getxG(), star2.getyG(), star2.getzG());
-        text("Distance from " + star1.getDisplayName() + " to " + star2.getDisplayName() + " is " + dist + " parsecs", (width / 2) + 270,
-                height - 25);
-    }
+        float x = map(star1.getxG(), -5, 5, (width / 2) + 300, width - 50);
+        float y = map(star1.getyG(), -5, 5, 700, height - 50);
+        strokeWeight(1);
+        line(x, y, mouseX, mouseY);
+        }
+     
+        else if (selected1 != -1 && selected2 != -1) 
+        {
+            Planet star1 = stars.get(selected1);
+            float x1 = map(star1.getxG(), -5, 5, (width / 2) + 300, width - 50);
+            float y1 = map(star1.getyG(), -5, 5, 700, height - 50);
 
-        //  s.render();
-        // s.update();
-        
+            Planet star2 = stars.get(selected2);
+            float x2 = map(star2.getxG(), -5, 5, (width / 2) + 300, width - 50);
+            float y2 = map(star2.getyG(), -5, 5, 700, height - 50);
+
+            strokeWeight(1);
+            stroke(255, 255, 0);
+            line(x1, y1, x2, y2);
+            fill(255);
+            float dist = dist(star1.getxG(), star1.getyG(), star1.getzG(), star2.getxG(), star2.getyG(), star2.getzG());
+            text("Distance from " + star1.getDisplayName() + " to " + star2.getDisplayName() + " is " + dist + " parsecs", (width / 2) + 270,
+                    height - 25);
+          }
+
+       
+     
         sp.render();
         sp.update();
 
-       writeTitles();
+        writeTitles();
         
         strokeWeight(1);
         

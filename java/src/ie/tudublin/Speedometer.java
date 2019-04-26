@@ -101,10 +101,6 @@ public class Speedometer extends PApplet
         printX=x+radius*(cos(radians(30)));
         printY=y-radius*(sin(radians(30)));
 
-        System.out.println(printX);
-        System.out.println(" Y " + printY);
-
-
 
         ui.line(x, y, pointerLineX, pointerLineY);
 
@@ -141,12 +137,11 @@ public class Speedometer extends PApplet
     }
 
     
-    // float timeDelta = 1.0f / 60.0f;
+ 
 
     public void update()
     {
-        // theta += PApplet.TWO_PI * timeDelta * frequency;
-
+        
         if (ui.checkKey(' '))
         {
             moverX -= 2;
@@ -160,22 +155,15 @@ public class Speedometer extends PApplet
         }
         else
         {
-            moverX += 3;
-            moverY += 3;
+            moverX += 0.2;
+            moverY += 0.2;
             if(pointerLineX > 1140.0 && pointerLineY > 606.60254)
             {
-                moverX -= 3;
-                moverY -= 3;
+                moverX -= 0.2;
+                moverY -= 0.2;
             }
         }
         
-       
-        
-        
     }
-
-
-    
-
     
 }
