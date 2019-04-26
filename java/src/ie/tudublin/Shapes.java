@@ -1,8 +1,5 @@
 package ie.tudublin;
 
-import processing.core.PApplet;
-
-
 
 public class Shapes
 {
@@ -47,7 +44,7 @@ public int time_stamp = 1;
         ui.line(x - 170, 580, x - 220, 600);
         ui.line(x - 220, 600, x - 240, 580);
         ui.circle(x - 240, 580, 30);
-        
+
 
 
         // ui.noFill();

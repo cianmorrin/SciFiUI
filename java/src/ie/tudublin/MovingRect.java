@@ -17,7 +17,6 @@ public class MovingRect extends Button
         ui.noStroke();
         ui.rect(x, y, width, height);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-        //ui.text(text, x + width * 0.9f, y + height * 0.9f);
     }
 
     public void update()

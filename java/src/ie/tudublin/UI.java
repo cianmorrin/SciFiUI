@@ -18,7 +18,6 @@ public class UI extends PApplet
     ArrayList<Alien> alieninfo = new ArrayList<Alien>();
     private ArrayList<Planet> stars = new ArrayList<Planet>();
 
-    Power p;
     CentreHub ch;
     Shapes sh;
     Button b;
@@ -61,7 +60,6 @@ public class UI extends PApplet
 
     public void setup()
     {
-        p = new Power(this, width / 2, height / 2, 5, 200);
         ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI, 0, 0); 
         sh = new Shapes(this, width / 2, 200);
         b = new Button(this, 50, 50, 100, 50, "I am a button");
@@ -356,9 +354,8 @@ public class UI extends PApplet
      
       fill(255);
       stroke(255);
-      p.render();
-      p.update();
-      //b.render();
+      
+      
       mb.render();
       mb.update();
 
