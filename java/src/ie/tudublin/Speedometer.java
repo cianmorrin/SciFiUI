@@ -11,9 +11,19 @@ public class Speedometer extends PApplet
     private UI ui;
     float xradiusLine;
     float yradiusLine;
-
+    private int p;
+   
     float x; // centre x
     float y; // centre y
+
+    float pointerLineX  ;
+    float pointerLineY  ;
+
+    float moverX = 210;
+    float moverY = 210;
+
+    float printX;
+    float printY;
 
     float radius=100f; // radius
     private float theta = 0;
@@ -27,6 +37,7 @@ public class Speedometer extends PApplet
     {
         this.ui = ui;
         pos = new PVector(x, y);
+        
     }
 
     
@@ -63,6 +74,8 @@ public class Speedometer extends PApplet
         y = pos.y - 40;
 
         
+
+        
         ui.strokeWeight(3); // at-least 2 but atmost 3
         ui.stroke(204, 255, 255);
         ui.fill(41, 45, 70);
@@ -82,15 +95,29 @@ public class Speedometer extends PApplet
         ui.fill(0); // fill must be background color
         ui.ellipse(x, y, 160, 160); // it will hide the marker lines and align text
 
+        pointerLineX=x+radius*(cos(radians(30 + moverX)));
+        pointerLineY=y-radius*(sin(radians(30 + moverY)));
+
+        printX=x+radius*(cos(radians(30)));
+        printY=y-radius*(sin(radians(30)));
+
+        System.out.println(printX);
+        System.out.println(" Y " + printY);
+
+
+
+        ui.line(x, y, pointerLineX, pointerLineY);
+
         ui.noStroke();
         ui.pushMatrix(); // current coordinate system must be saved
         ui.translate(x,y); // it must be called before rotate with centre
         ui.rotate(-PI/3);
         ui.fill(204, 255, 255); // it must be called to set fill of pointer
-        ui.triangle(0,10,0,-10,-70,0);
+        //ui.triangle(0,10,0,-10,-70,0);
         ui.ellipse(0,0,20,20); // it must be drawn after triangle
         ui.popMatrix(); // previous coordinate system must be restored
-
+        
+        
         // ui.fill(0);
         // float x2 = x + (float) Math.sin(theta) * radius;
         // float y2 = y - (float) Math.cos(theta) * radius;
@@ -109,8 +136,8 @@ public class Speedometer extends PApplet
             textCounter -=10;
           
         }
-
-        
+       
+        ui.strokeWeight(3);
     }
 
     
@@ -119,6 +146,32 @@ public class Speedometer extends PApplet
     public void update()
     {
         // theta += PApplet.TWO_PI * timeDelta * frequency;
+
+        if (ui.checkKey(' '))
+        {
+            moverX -= 2;
+            moverY -= 2;
+            if(pointerLineX > 1276.6025 && pointerLineY > 470.0)
+            {
+                moverX += 2;
+                moverY += 2;
+            }
+           
+        }
+        else
+        {
+            moverX += 3;
+            moverY += 3;
+            if(pointerLineX > 1140.0 && pointerLineY > 606.60254)
+            {
+                moverX -= 3;
+                moverY -= 3;
+            }
+        }
+        
+       
+        
+        
     }
 
 

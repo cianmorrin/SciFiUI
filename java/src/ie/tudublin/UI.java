@@ -368,7 +368,7 @@ public void settings()
       //b.render();
       mb.render();
       mb.update();
-      
+
       r.render();
       r.update();
       
@@ -436,7 +436,7 @@ public void settings()
         // s.update();
         
         sp.render();
-       // sp.update();
+        sp.update();
 
        writeTitles();
         
