@@ -299,7 +299,7 @@ public void settings()
         ai = minim.getLineIn(Minim.MONO,  FRAME_SIZE, SAMPLE_RATE, RESOLUTION);
         fft = new FFT(FRAME_SIZE, SAMPLE_RATE);
         
-       // noLoop();
+        noLoop();
        
     }
 
