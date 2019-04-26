@@ -340,6 +340,7 @@ public void settings()
 
        loadData();
        printStars();
+       
     }
 
     public void draw()
@@ -367,9 +368,10 @@ public void settings()
       //b.render();
       mb.render();
       mb.update();
-
-      r.update();
+      
       r.render();
+      r.update();
+      
 
       bc.render();
       bc.update();
