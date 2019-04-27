@@ -19,7 +19,7 @@ public class UI extends PApplet
     private ArrayList<Planet> stars = new ArrayList<Planet>();
 
     CentreHub ch;
-    Shapes sh;
+    Lines li;
     Button b;
     MovingRect mb;
     Radar r;
@@ -27,6 +27,8 @@ public class UI extends PApplet
     Speedometer sp;
     VoiceComs vc;
     PFont myFont;
+
+    Shapes sh, tr;
 
     public static int SAMPLE_RATE = 44100;
     public static int RESOLUTION = 8;
@@ -61,13 +63,16 @@ public class UI extends PApplet
     public void setup()
     {
         ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI, 0, 0); 
-        sh = new Shapes(this, width / 2, 200);
+        li = new Lines(this, width / 2, 200);
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mb = new MovingRect(this, 200, 0, 150, 10, "I am bigger moving button");
         r = new Radar(this, 1, width - 200, 200, 100);
         bc = new BarChart(this, 200, 200);
         vc = new VoiceComs(this, 200, 560);
         sp = new Speedometer(this, width - 300, 560);
+        
+        sh = new Shapes(this, width / 2, height / 2);
+        tr = new Triangle(this, width / 2, height / 2);
 
         loadData();
         printStars();
@@ -344,8 +349,12 @@ public class UI extends PApplet
       text("ALIEN \n HUNTER XCON", width / 2, 100);
 
 
-      sh.render();
-      sh.update();
+     sh.create();
+     tr.create();
+
+
+      li.render();
+      li.update();
       strokeWeight(3f);
 
       fill(startCircle);

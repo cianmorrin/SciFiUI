@@ -1,7 +1,7 @@
 package ie.tudublin;
 
 
-public class Shapes
+public class Triangle extends Shapes
 {
     UI ui;
   
@@ -10,16 +10,14 @@ public class Shapes
     
   
 
-    public Shapes(UI ui, float x, float y)
+    public Triangle(UI ui, float x, float y)
     {
-        this.ui = ui;
-        this.x = x;
-        this.y = y;
+       super(ui, x, y);
     }
 
     public void create()
     {   
-       // System.out.println("i am a shape");
+        //System.out.println("i am a triangle");
       
     }
 
