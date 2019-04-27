@@ -3,12 +3,8 @@ package ie.tudublin;
 
 public class Triangle extends Shapes
 {
-    UI ui;
-  
-    private float x ;
-    private float y ;
-    
-  
+   
+
 
     public Triangle(UI ui, float x, float y)
     {
@@ -17,7 +13,10 @@ public class Triangle extends Shapes
 
     public void create()
     {   
-        //System.out.println("i am a triangle");
+        //System.out.println("x is : " + x + "\n");
+
+        
+        //ui.triangle(x, y, x + 50, y - 30, x - 20, y + 90);
       
     }
 

@@ -348,11 +348,6 @@ public class UI extends PApplet
       textAlign(CENTER, CENTER);
       text("ALIEN \n HUNTER XCON", width / 2, 100);
 
-
-     sh.create();
-     tr.create();
-
-
       li.render();
       li.update();
       strokeWeight(3f);
@@ -440,6 +435,9 @@ public class UI extends PApplet
         sp.update();
 
         writeTitles();
+
+        sh.create();
+        tr.create();
         
         strokeWeight(1);
         

@@ -5,8 +5,8 @@ public class Shapes
 {
     UI ui;
   
-    private float x ;
-    private float y ;
+    public float x ;
+    public float y ;
     
   
 
@@ -20,10 +20,17 @@ public class Shapes
     public void create()
     {   
        // System.out.println("i am a shape");
+       ui.noFill();
+       ui.strokeWeight(1.5f);
+       ui.circle(x - 200, y + 100, 30);
+       ui.fill(204, 255, 255); 
+       ui.circle(x - 200, y + 100, 15);
+
+
       
     }
 
-    public void move()
+    public void update()
     {
         
   
