@@ -65,10 +65,4 @@ public class Hexagon extends Shapes
 
     }
 
-    public void move()
-    {
-        
-  
-
-    }
 }

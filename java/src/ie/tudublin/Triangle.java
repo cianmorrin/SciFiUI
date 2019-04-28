@@ -24,11 +24,4 @@ public class Triangle extends Shapes
         ui.triangle( x + 320, y - 100, x + 330, y - 90, x + 310, y - 88);
 
     }
-
-    public void move()
-    {
-        
-  
-
-    }
 }
