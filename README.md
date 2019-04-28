@@ -78,17 +78,16 @@ public void render()
 }
 ```
 
-![An image](images/p8.png)
 
+UI before being powered up : 
 
+![An image] (images/UIPowerDown.png)
 
-Interface when live :
-
-https://github.com/cianmorrin/SciFiUI/blob/master/images/Screenshot%202019-04-28%20at%2021.57.35.png
+UI when  powered up :
+![An image] (images/UIPowerUp.png)
 
 
 YouTube link to video : 
 
-https://www.youtube.com/watch?v=C-FxErOnQZ8&feature=youtu.be
-
+[![YouTube] (https://youtu.be/C-FxErOnQZ8)
 
