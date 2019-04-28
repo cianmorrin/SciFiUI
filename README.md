@@ -79,7 +79,8 @@ public void render()
 ```
 Interface when live :
 
-images/Screenshot 2019-04-28 at 21.57.35.png
+https://github.com/cianmorrin/SciFiUI/blob/master/images/Screenshot%202019-04-28%20at%2021.57.35.png
+
 
 YouTube link to video : 
 
