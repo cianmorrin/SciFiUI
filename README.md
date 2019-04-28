@@ -81,13 +81,14 @@ public void render()
 
 UI before being powered up : 
 
-![An image] (images/UIPowerDown.png)
+![An image](images/UIPowerDown.png)
 
 UI when  powered up :
-![An image] (images/UIPowerUp.png)
+
+![An image](images/UIPowerUp.png)
 
 
 YouTube link to video : 
 
-[![YouTube] (https://youtu.be/C-FxErOnQZ8)
+[![YouTube]](https://youtu.be/C-FxErOnQZ8)
 
