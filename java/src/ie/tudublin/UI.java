@@ -28,7 +28,7 @@ public class UI extends PApplet
     VoiceComs vc;
     PFont myFont;
 
-    Shapes sh, tr;
+    Shapes sh, tr, hex;
 
     public static int SAMPLE_RATE = 44100;
     public static int RESOLUTION = 8;
@@ -73,6 +73,7 @@ public class UI extends PApplet
         
         sh = new Shapes(this, width / 2, height / 2);
         tr = new Triangle(this, width / 2, height / 2);
+        hex = new Hexagon(this, width / 2, height / 2);
 
         loadData();
         printStars();
@@ -348,6 +349,10 @@ public class UI extends PApplet
       textAlign(CENTER, CENTER);
       text("ALIEN \n HUNTER XCON", width / 2, 100);
 
+      sh.create();
+      tr.create();
+      hex.create();
+
       li.render();
       li.update();
       strokeWeight(3f);
@@ -436,8 +441,7 @@ public class UI extends PApplet
 
         writeTitles();
 
-        sh.create();
-        tr.create();
+        
         
         strokeWeight(1);
         
