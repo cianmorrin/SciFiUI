@@ -1,8 +1,8 @@
 # SciFi UI Project
 
-Name:
+Name: Cian Morrin
 
-Student Number: 
+Student Number: C17718445
 
 Fork this repository and use it a starter project for your assignment
 
