@@ -15,16 +15,16 @@ Adding to the ships components is a dashboard, used to display information about
 
 # Instructions
 
-1. When the program is run, the UI is "powered down". Upon *clicking the centre circle*, the interface awakens and is live.
+1 . When the program is run, the UI is "powered down". Upon *clicking the centre circle*, the interface awakens and is live.
 
-2. The speedometer is controlled by the space bar. *Holding the space bar* will increase the speed until it hits the limit.
+2 . The speedometer is controlled by the space bar. *Holding the space bar* will increase the speed until it hits the limit.
 The speed will then decrease automatically when the space bar is released. Much like a car accelerator.
 
 3 . The 6 buttons on the bottom left corner represent different alien species. *Clicking an indivudal button* revelas the information about the alien in the centre window. 
 
 4 . The planet map in the bottom right corner works by *clicking an individual planet*, dragging the mouse to another planet and releasing it. From there the distance between the two planets (or position) is displayed to the screen.
 
-5. *Noise input is registered* in the voice communication device. 
+5 . *Noise input is registered* in the voice communication device. 
 
 
 # How it works
