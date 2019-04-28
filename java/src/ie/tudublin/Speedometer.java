@@ -37,6 +37,7 @@ public class Speedometer extends PApplet
 
     public void render()
     {
+        ui.strokeWeight(3); 
         ui.noStroke();
         ui.fill(41, 45, 70);
         ui.rect((pos.x - 150 ) , (pos.y - 150), 400, 220);
