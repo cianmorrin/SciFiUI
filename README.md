@@ -1,8 +1,8 @@
 # SciFi UI Project
 
-Name:
+Name: Cian Morrin
 
-Student Number: 
+Student Number: C17718445
 
 Fork this repository and use it a starter project for your assignment
 
@@ -69,16 +69,8 @@ This is an image using an absolute URL:
 
 ![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
 
-This is a youtube video:
+YouTube link to video
 
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
+[![YouTube](https://youtu.be/C-FxErOnQZ8)
 
-This is a table:
-
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
 
