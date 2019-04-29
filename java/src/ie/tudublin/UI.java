@@ -16,7 +16,7 @@ public class UI extends PApplet
 {
     ArrayList<Alien> aliens = new ArrayList<Alien>();
     ArrayList<Alien> alieninfo = new ArrayList<Alien>();
-    private ArrayList<Planet> stars = new ArrayList<Planet>();
+    private ArrayList<Planet> planets = new ArrayList<Planet>();
 
     CentreHub ch;
     Lines li;
@@ -76,7 +76,7 @@ public class UI extends PApplet
         hex = new Hexagon(this, width / 2, height / 2);
 
         loadData();
-        printStars();
+        printPlanets();
     
     }
 
@@ -215,8 +215,8 @@ public class UI extends PApplet
 
 
 
-        for (int i = 0; i < stars.size(); i++) {
-          Planet s = stars.get(i);
+        for (int i = 0; i < planets.size(); i++) {
+          Planet s = planets.get(i);
 
           float x = map(s.getxG(), -5, 5, (width / 2) + 300, width - 50);
           float y = map(s.getyG(), -5, 5, 700, height - 50);
@@ -271,13 +271,13 @@ public class UI extends PApplet
       for (TableRow row : table.rows()) 
       {
           Planet star = new Planet(row);
-          stars.add(star);
+          planets.add(star);
       }
     }
 
-     public void printStars() 
+     public void printPlanets() 
      {
-         for (Planet star : stars) 
+         for (Planet star : planets) 
          {
             System.out.println(star);
          }
@@ -304,8 +304,8 @@ public class UI extends PApplet
 
     public void drawStars()
     {
-         textAlign(LEFT, CENTER);
-        for (Planet s : stars) 
+        textAlign(LEFT, CENTER);
+        for (Planet s : planets) 
         {
           float x = map(s.getxG(), -5, 5, (width / 2) + 300, width - 50);
           float y = map(s.getyG(), -5, 5, 700, height - 50);
@@ -407,30 +407,30 @@ public class UI extends PApplet
 
       if (selected1 != -1 && selected2 == -1) 
       {
-        Planet star1 = stars.get(selected1);
+        Planet planet1 = planets.get(selected1);
         stroke(255);
-        float x = map(star1.getxG(), -5, 5, (width / 2) + 300, width - 50);
-        float y = map(star1.getyG(), -5, 5, 700, height - 50);
+        float x = map(planet1.getxG(), -5, 5, (width / 2) + 300, width - 50);
+        float y = map(planet1.getyG(), -5, 5, 700, height - 50);
         strokeWeight(1);
         line(x, y, mouseX, mouseY);
         }
      
         else if (selected1 != -1 && selected2 != -1) 
         {
-            Planet star1 = stars.get(selected1);
-            float x1 = map(star1.getxG(), -5, 5, (width / 2) + 300, width - 50);
-            float y1 = map(star1.getyG(), -5, 5, 700, height - 50);
+            Planet planet1 = planets.get(selected1);
+            float x1 = map(planet1.getxG(), -5, 5, (width / 2) + 300, width - 50);
+            float y1 = map(planet1.getyG(), -5, 5, 700, height - 50);
 
-            Planet star2 = stars.get(selected2);
-            float x2 = map(star2.getxG(), -5, 5, (width / 2) + 300, width - 50);
-            float y2 = map(star2.getyG(), -5, 5, 700, height - 50);
+            Planet planet2 = planets.get(selected2);
+            float x2 = map(planet2.getxG(), -5, 5, (width / 2) + 300, width - 50);
+            float y2 = map(planet2.getyG(), -5, 5, 700, height - 50);
 
             strokeWeight(1);
             stroke(255);
             line(x1, y1, x2, y2);
             fill(255);
-            float dist = dist(star1.getxG(), star1.getyG(), star1.getzG(), star2.getxG(), star2.getyG(), star2.getzG());
-            text("Distance from " + star1.getDisplayName() + " to " + star2.getDisplayName() + " is " + dist + " parsecs", (width / 2) + 240,
+            float dist = dist(planet1.getxG(), planet1.getyG(), planet1.getzG(), planet2.getxG(), planet2.getyG(), planet2.getzG());
+            text("Distance from " + planet1.getDisplayName() + " to " + planet2.getDisplayName() + " is " + dist + " parsecs", (width / 2) + 240,
                     height - 25);
           }
 
