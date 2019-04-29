@@ -13,6 +13,7 @@ My user-interface is for an 'Alien Hunter' ship. The interface is powered up by 
 
 Adding to the ships components is a dashboard, used to display information about the aliens and their location. The interactive planet map can be utilised to reveal the distance between the planets and the users location.
 
+
 # Instructions
 
 1 . When the program is run, the UI is "powered down". Upon *clicking the centre circle*, the interface awakens and is live.
@@ -77,9 +78,12 @@ public void draw()
 
 Some of the features I included in my program : 
 
-- #### Variables, loops, methods
+- #### Variables, loops
+
+Here I have used a for each loop to itertae through the array list, initialising the float variables x and y with values, using the map function in order to calculate suitable co-ordinates for the map. These variables are use to draw the planets on the map. This is called in draw then to display the planets on the map. 
+
 ```Java
-public void drawStars()
+public void drawPlanets()
     {
         textAlign(LEFT, CENTER);
         for (Planet s : planets) 
@@ -103,7 +107,9 @@ public void drawStars()
     }
 ```
 
-- #### Arrays & array lists
+- #### Array lists & methods
+
+I created an array list which reads from a CSV file and adds the contents to the array list by iterating over the rows.
 
 ```Java
 
@@ -121,7 +127,43 @@ public void drawStars()
     }
     }
 ```
-- #### Objects, inheritance, polymorphism
+
+- #### Inheritance
+
+The class MovingRect inherits from the class provided to us in the original repository, thus the object acquires all the properties and behaviors of the parent object. But I overrided the methods so the button would move and bounce of the sides of the screen.
+
+```Java
+
+ public class MovingRect extends Button
+{
+    private float dx = 10;
+
+    public MovingRect(UI ui, float x, float y, float width, float height, String text)
+    {
+      super(ui, x, y, width, height, text);
+    }
+
+    public void render()
+    {
+        ui.fill(41, 45, 70);
+        ui.noStroke();
+        ui.rect(x, y, width, height);
+        ui.textAlign(PApplet.CENTER, PApplet.CENTER);
+    }
+
+    public void update()
+    {
+        x += dx;
+        if ((x > ui.width - width) || (x < 0))
+        {
+            dx *= -1;
+        }
+    }
+```
+
+- #### Polymorphism
+
+Here I override the methods of the class Shape in the sub classes Triangle and Hexagon.
 
 ```Java
  Shapes sh, tr, hex;
@@ -200,7 +242,10 @@ public class Hexagon extends Shapes
 	}
 }
 ```
+
 - #### The unit circle and trigonometry
+
+Using cos, sin to draw a speedometer and ensure perfect angles for the circle's speedd markers. Also used to manipulate the pointer in the speedometer.
 
 ```Java
 
@@ -214,8 +259,10 @@ for (int i = 0; i <240 ; i+=30)
 ```
 - #### pushMatrix, popMatrix, translate and rotate
 
+Here is a simple example of my use pushMatrix, popMatrix, translate and rotate. Here I took a small circle and translated it to be in the centre of the speedometer to cover the base of the pointer.
+
 ```Java
- ui.noStroke();
+
         ui.pushMatrix(); 
         ui.translate(x,y); 
         ui.rotate(-PI/3);
@@ -226,48 +273,14 @@ for (int i = 0; i <240 ; i+=30)
 ```
 
 
-
-
-
 # What I am most proud of in the assignment
 
-# Markdown Tutorial
+I am very proud of the aesthetic look of the UI and the functionality behind it. Drawing from and expanding on lab work throughout the semester, I implemented the knowledge I have gained and created an interface I'm very proud of. 
 
-This is *emphasis*
+I did my first commit on March 19th, and I am very happy with my steady progress over the successive weeks. Manipulating the  sketches and ideas we have visited in class gave me a far greater understanding into the workings of the code, along with this I challeneged myself to come up with some ideas of my own. The use of the unit circle and trigonometry interests me and I implemented this in the creation of the speedometer. The moving bar charts, and the speedometer's needle being manipulated by the space bar were two more aspects I was happy to implement as I intended. I was also very pleased with the rotating 'centre-hub' and how it comes to life when the centre button is selected. 
 
-This is a bulleted list
+The concept of an Alien Hunter was one that developed over the course of the assignment as I initially had more of a visual reprenstation of the interface. I think the concept expanded into something very cool and I would like to expand upon in the future as my experience with processing grows, I think there is room for more complex code and as a result more usable applications in the interface.
 
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
-
-
-
-So is this without specifying the language:
-
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
 
 
 UI before being powered up : 
