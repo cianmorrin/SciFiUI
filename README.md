@@ -281,7 +281,7 @@ I did my first commit on March 19th, and I am very happy with my steady progress
 
 The concept of an Alien Hunter was one that developed over the course of the assignment as I initially had more of a visual reprenstation of the interface. I think the concept expanded into something very cool and I would like to expand upon in the future as my experience with processing grows, I think there is room for more complex code and as a result more usable applications in the interface.
 
-
+# Images 
 
 UI before being powered up : 
 
@@ -291,8 +291,9 @@ UI when  powered up :
 
 ![An image](images/UIPowerUp.png)
 
+# YouTube 
 
-YouTube link to video : 
+Link to video : 
 
 [Alien Hunter Youtube Video](https://youtu.be/C-FxErOnQZ8)
 
