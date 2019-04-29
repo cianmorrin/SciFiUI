@@ -3,8 +3,6 @@ package ie.tudublin;
 
 public class Triangle extends Shapes
 {
-   
-
 
     public Triangle(UI ui, float x, float y)
     {

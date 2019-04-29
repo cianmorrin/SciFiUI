@@ -114,7 +114,8 @@ public class UI extends PApplet
           }
       }
 
-      public void printAlienInfo() {
+    public void printAlienInfo() 
+    {
         for (Alien a1 : alieninfo) {
             System.out.println(a1);
         }
@@ -302,7 +303,7 @@ public class UI extends PApplet
     }
     }
 
-    public void drawStars()
+    public void drawPlanets()
     {
         textAlign(LEFT, CENTER);
         for (Planet s : planets) 
@@ -403,7 +404,7 @@ public class UI extends PApplet
 
 
       drawGrid();
-      drawStars();
+      drawPlanets();
 
       if (selected1 != -1 && selected2 == -1) 
       {

@@ -3,9 +3,6 @@ package ie.tudublin;
 
 public class Hexagon extends Shapes
 {
-   
-   
-
     public Hexagon(UI ui, float x, float y)
     {
        super(ui, x, y);
