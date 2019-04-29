@@ -29,6 +29,206 @@ The speed will then decrease automatically when the space bar is released. Much 
 
 # How it works
 
+The UI class declares and instantiates the classes by allocating memory for the objects. From there the methods such as render and update are called. Eg. 
+
+```Java
+public void setup()
+    {
+        ch = new CentreHub(this, width, height, PI, QUARTER_PI, HALF_PI, TWO_PI, 0, 0); 
+        li = new Lines(this, width / 2, 200);
+        b = new Button(this, 50, 50, 100, 50, "I am a button");
+        mb = new MovingRect(this, 200, 0, 150, 10, "I am bigger moving button");
+        r = new Radar(this, 1, width - 200, 200, 100);
+        bc = new BarChart(this, 200, 200);
+        vc = new VoiceComs(this, 200, 560);
+        sp = new Speedometer(this, width - 300, 560);
+        
+        sh = new Shapes(this, width / 2, height / 2);
+        tr = new Triangle(this, width / 2, height / 2);
+        hex = new Hexagon(this, width / 2, height / 2);
+
+        loadData();
+        printStars();
+    
+    }
+    
+public void draw()
+    {
+      li.render();
+      li.update();
+      strokeWeight(3f);
+
+      fill(startCircle);
+      stroke(204, 255, 255);
+      circle(width/2, height/2, 100);
+     
+      fill(255);
+      stroke(255);
+      
+      
+      mb.render();
+      mb.update();
+
+      r.render();
+      r.update();
+      
+    }
+```
+
+Some of the features I included in my program : 
+
+- #### Variables, loops, methods
+```Java
+public void drawStars()
+    {
+        textAlign(LEFT, CENTER);
+        for (Planet s : planets) 
+        {
+          float x = map(s.getxG(), -5, 5, (width / 2) + 300, width - 50);
+          float y = map(s.getyG(), -5, 5, 700, height - 50);
+
+            strokeWeight(1.5f);
+            stroke(229, 204, 255);
+            noFill();
+            ellipse(x, y, s.getAbsMag(), s.getAbsMag());
+
+            stroke(0, 255, 255);
+            line(x, y - 5, x, y + 5);
+            line(x - 5, y, x + 5, y);
+            fill(255);
+            text(s.getDisplayName(), x + 20, y);
+         }
+    }
+ 
+    }
+```
+
+- #### Arrays & array lists
+
+```Java
+
+ ArrayList<Alien> aliens = new ArrayList<Alien>();
+ 
+ 
+ void loadAliens()
+    {
+        Table table = loadTable("alien.csv", "header");
+        for(TableRow tr:table.rows())
+        {
+           Alien a = new Alien(tr);
+           aliens.add(a);
+       }        
+    }
+    }
+```
+- #### Objects, inheritance, polymorphism
+
+```Java
+ Shapes sh, tr, hex;
+ 
+  sh = new Shapes(this, width / 2, height / 2);
+  tr = new Triangle(this, width / 2, height / 2);
+  hex = new Hexagon(this, width / 2, height / 2);
+ 
+ 
+ public class Shapes
+{
+    UI ui;
+  
+    public float x ;
+    public float y ;
+    private int i = 1, j = 1;
+  
+
+    public Shapes(UI ui, float x, float y)
+    {
+        this.ui = ui;
+        this.x = x;
+        this.y = y;
+    }
+
+    public void create()
+    {   
+        if (i == 0 || i == 255) { j = -j; }
+        i += j;
+        ui.fill(255,255,224, i);
+        ui.ellipse(x, y, 250, 250);
+     }
+     
+}
+
+
+public class Triangle extends Shapes
+{
+
+    public Triangle(UI ui, float x, float y)
+    {
+       super(ui, x, y);
+    }
+
+    public void create()
+    {   
+        //System.out.println("x is : " + x + "\n");
+
+        ui.noFill();
+        ui.strokeWeight(0.5f);
+        ui.triangle(x - 220, y - 170, x - 220, y - 190, x - 200, y - 185);
+      
+    }
+}
+
+public class Hexagon extends Shapes
+{
+    public Hexagon(UI ui, float x, float y)
+    {
+       super(ui, x, y);
+    }
+
+    public void create()
+    {   
+        ui.strokeWeight(0.5f);
+        ui.line(x - 300, y - 120, x - 270 , y - 120);
+        ui.line(x - 300, y - 120, x - 320 , y - 90);
+        ui.line(x - 270 , y - 120, x - 250 , y - 90);
+       
+       //two bottom half verticles left and right
+        ui.line(x - 320 , y - 90, x - 300, y - 60);
+        ui.line(x - 250 , y - 90, x - 270, y - 60);
+
+        //bottom line
+        ui.line(x - 300, y - 60, x - 270 , y - 60);
+	}
+}
+```
+- #### The unit circle and trigonometry
+
+```Java
+
+for (int i = 0; i <240 ; i+=30) 
+        {
+            ui.stroke(204, 255, 255);
+            xradiusLine=x+radius*(cos(radians(30 + i)));
+            yradiusLine=y-radius*(sin(radians(30+ i)));
+            ui.line(x, y, xradiusLine, yradiusLine);
+        }
+```
+- #### pushMatrix, popMatrix, translate and rotate
+
+```Java
+ ui.noStroke();
+        ui.pushMatrix(); 
+        ui.translate(x,y); 
+        ui.rotate(-PI/3);
+        ui.fill(204, 255, 255);
+        ui.ellipse(0,0,20,20);
+        ui.popMatrix(); 
+    }
+```
+
+
+
+
+
 # What I am most proud of in the assignment
 
 # Markdown Tutorial
@@ -54,16 +254,7 @@ This is a [hyperlink](http://bryanduggan.org)
 
 This is code:
 
-```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
+
 
 So is this without specifying the language:
 
